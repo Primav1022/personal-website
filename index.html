@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <!-- 添加 imagesLoaded 库 -->
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <!-- 添加 Chart.js 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+
 </head>
+
 <body>
     <!-- 添加预加载器 -->
     <div class="preloader">
@@ -25,21 +32,21 @@
             <div class="preloader__progress"><span></span></div>
         </div>
     </div>
-    
+
     <!-- 原有的背景容器 -->
     <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: 1;">
         <div id="sketch-holder" style="width: 100%; height: 100%;">
             <!-- p5.js画布会在这里创建 -->
         </div>
     </div>
-    
+
     <!-- 主要内容，放在上层 -->
     <div class="container" style="position: relative; z-index: 2;">
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="cv.html">CV</a></li>
-                <li><a href="works.html">Projects</a></li>
+                <li><a href="projects.html">Projects</a></li>
                 <li><a href="hobby.html">Hobby</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
@@ -57,26 +64,8 @@
                         <p>李雪琛</p>
                         <p>Master Student @ Tongji</p>
                     </div>
-                    
-                    <!-- 添加新的信息区块 -->
-                    <div class="sidebar__info box-inner box-inner--rounded">
-                        <ul class="contacts-block">
-                            <li class="contacts-block__item">
-                                <i class="icon-location"></i>Shanghai, China
-                            </li>
-                            <li class="contacts-block__item">
-                                <i class="icon-envelope"></i>your.email@example.com
-                            </li>
-                            <li class="contacts-block__item">
-                                <i class="icon-education"></i>College of Design and Innovation
-                            </li>
-                        </ul>
-                        
-                        <a href="assets/files/CV_PrimavLi.pdf" class="cv-download" download>
-                            Download CV
-                        </a>
-                    </div>
 
+                    <!-- Social -->
                     <div class="social-links">
                         <a href="https://linkedin.com/in/你的链接" target="_blank" class="social-link">
                             <img src="assets/icons/linkedin.svg" alt="LinkedIn">
@@ -88,28 +77,59 @@
                             <img src="assets/icons/behance.svg" alt="Behance">
                         </a>
                     </div>
+
+                    <!-- 添加新的信息区块 -->
+                    <div class="sidebar__info box-inner box-inner--rounded">
+                        <ul class="contacts-block">
+                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Address">
+                                <i class="icon-location"></i> Shanghai, China
+                            </li>
+                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="E-mail">
+                                <i class="icon-envelope"></i> primav1022@tongji.edu.cn
+                            </li>
+                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Education">
+                                <i class="icon-education"></i> College of Design and Innovation
+                            </li>
+                        </ul>
+        
+                        <a href="assets/files/CV_PrimavLi.pdf" class="cv-download" download>
+                            Download CV
+                        </a>
+                    </div>
+        
+                    
                 </div>
             </div>
-
+        
             <!-- 右侧内容区域 -->
-            <div class="right-content" >
+            <div class="right-content">
                 <div class="profile-intro">
                     <h1>Hi, I'm Primav Li</h1>
                     <p class="intro-text">
-                        I'm a second - year master's student in the College of Design and Innovation, Tongji University, majoring in Artificial Intelligence and Data Design, supervised by Prof. Qing Chen.
-                        Previously, I received my B.Eng. in Industrial Design from the top - tier program of Huazhong University of Science and Technology. During my undergraduate years, I had valuable experiences interning at Tesla, focusing on user - centered design for autonomous driving interfaces; and at ByteDance, conducting research on AI - powered content recommendation algorithms. If you're interested, you can check out my CV.
-                        You can find me as Xuechen li on most platforms. And my nickname is Primav (inspired by the new - era innovation in design and technology). (LinkedIn | Dribbble | Behance)
+                        I'm a second - year master's student in the College of Design and Innovation, Tongji University,
+                        majoring in Artificial Intelligence and Data Design, supervised by Prof. Qing Chen.
+                        Previously, I received my B.Eng. in Industrial Design from the top - tier program of Huazhong
+                        University of Science and Technology. During my undergraduate years, I had valuable experiences
+                        interning at Tesla, focusing on user - centered design for autonomous driving interfaces; and at
+                        ByteDance, conducting research on AI - powered content recommendation algorithms. If you're
+                        interested, you can check out my CV.
+                        You can find me as Xuechen li on most platforms. And my nickname is Primav (inspired by the new
+                        - era innovation in design and technology). (LinkedIn | Dribbble | Behance)
                     </p>
                     <p class="intro-text">
-                        When I'm not engrossed in my studies or work, I have a diverse range of hobbies that bring balance to my life. Reading is one of my greatest passions. 
-                        Whether it's diving into a thought - provoking novel or exploring the latest research in my field, books have always been my gateway to new knowledge and perspectives. 
-                        Painting, on the other hand, allows me to express my creativity in a more visual and hands - on way. It's a form of self - expression that helps me relax and explore different ideas. 
-                        And playing the guitar is not only a great way to unwind but also a means of connecting with others through the universal language of music.
+                        When I'm not engrossed in my studies or work, I have a diverse range of hobbies that bring
+                        balance to my life. Reading is one of my greatest passions.
+                        Whether it's diving into a thought - provoking novel or exploring the latest research in my
+                        field, books have always been my gateway to new knowledge and perspectives.
+                        Painting, on the other hand, allows me to express my creativity in a more visual and hands - on
+                        way. It's a form of self - expression that helps me relax and explore different ideas.
+                        And playing the guitar is not only a great way to unwind but also a means of connecting with
+                        others through the universal language of music.
                     </p>
                 </div>
-
+        
                 <!-- What -->
-				<div class="box-inner pb-0">
+                <div class="box-inner pb-0">
                     <h2 class="title title--h3">What I'm Doing</h2>
                     <div class="row">
                         <!-- Case Item -->
@@ -118,46 +138,85 @@
                                 <img class="case-item__icon" src="picture/icon-design.svg" alt="" />
                                 <div>
                                     <h3 class="title title--h5">Web Design</h3>
-                                    <p class="case-item__caption">The most modern and high-quality design made at a professional level.</p>
-                                </div>	
+                                    <p class="case-item__caption">The most modern and high-quality design made at a
+                                        professional level.</p>
+                                </div>
                             </div>
                         </div>
-                        
+        
                         <!-- Case Item -->
                         <div class="col-12 col-lg-6">
                             <div class="case-item box box__second">
                                 <img class="case-item__icon" src="picture/icon-dev.svg" alt="" />
                                 <div>
                                     <h3 class="title title--h5">Web Development</h3>
-                                    <p class="case-item__caption">High-quality development of sites at the professional level.</p>
+                                    <p class="case-item__caption">High-quality development of sites at the professional
+                                        level.</p>
                                 </div>
                             </div>
                         </div>
-                        
+        
                         <!-- Case Item -->
                         <div class="col-12 col-lg-6">
                             <div class="case-item box box__second">
                                 <img class="case-item__icon" src="img/icon-app.svg" alt="" />
                                 <div>
                                     <h3 class="title title--h5">Mobile Apps</h3>
-                                    <p class="case-item__caption">Professional development of applications for iOS and Android.</p>
+                                    <p class="case-item__caption">Professional development of applications for iOS and
+                                        Android.</p>
                                 </div>
-                           </div>
+                            </div>
                         </div>
-                        
+        
                         <!-- Case Item -->
                         <div class="col-12 col-lg-6">
                             <div class="case-item box box__second">
                                 <img class="case-item__icon" src="img/icon-photo.svg" alt="" />
                                 <div>
                                     <h3 class="title title--h5">Photography</h3>
-                                    <p class="case-item__caption">I make high-quality photos of any category at a professional level.</p>
+                                    <p class="case-item__caption">I make high-quality photos of any category at a
+                                        professional level.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>	
-                </div>		
+                    </div>
+                </div>
+        
+                <!-- 技能雷达图部分 -->
+                <div class="box-inner pb-0">
+                    <h2 class="title title--h3">Skills</h2>
+                    <div class="skills-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <!-- 设计技能 -->
+                        <div class="skill-chart-wrapper" style="min-width: 0;">
+                            <h3 class="title title--h5">Design Skills</h3>
+                            <canvas id="designSkillsChart"></canvas>
+                        </div>
+        
+                        <!-- 编程技能 -->
+                        <div class="skill-chart-wrapper" style="min-width: 0;">
+                            <h3 class="title title--h5">Coding Skills</h3>
+                            <canvas id="codingSkillsChart"></canvas>
+                        </div>
+        
+                        <!-- 3D建模技能 -->
+                        <div class="skill-chart-wrapper" style="min-width: 0;">
+                            <h3 class="title title--h5">3D Modeling Skills</h3>
+                            <canvas id="modelingSkillsChart"></canvas>
+                        </div>
+        
+                        <!-- 其他技能 -->
+                        <!-- <div class="skill-chart-wrapper" style="min-width: 0;">
+                                            <h3 class="title title--h5">Other Skills</h3>
+                                            <canvas id="otherSkillsChart"></canvas>
+                                        </div> -->
+        
+        
+                    </div>
+                </div>
+                <!-- Footer -->
+                <footer class="footer">© 2025 Design and Code by Primav</footer>
             </div>
+        
         </main>
     </div>
 
@@ -165,5 +224,7 @@
     <script src="js/1.js"></script>
     <script src="js/animation.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/chart.js"></script>
 </body>
-</html> 
+
+</html>

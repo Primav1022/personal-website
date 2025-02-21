@@ -6,6 +6,7 @@
     <title>我的个人网站</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style_project.css">
 </head>
 <body>
     <canvas id="bgCanvas"></canvas>
@@ -13,16 +14,154 @@
     <div class="container">
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="cv.html">简历</a></li>
-                <li><a href="works.html">作品</a></li>
-                <li><a href="hobby.html">爱好</a></li>
-                <li><a href="blog.html">博客</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="hobby.html">Hobby</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
 
         <main class="content">
-            <!-- 内容区域 -->
+            <!-- 左侧作品集区域 -->
+            <div class="left-column">
+                <div class="section-box">
+                    <h2 class="title">设计项目</h2>
+                    <div class="portfolio-grid">
+                        <!-- 设计项目卡片1 -->
+                        <div class="portfolio-card">
+                            <div class="portfolio-image">
+                                <img src="images/design1.jpg" alt="设计项目1">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>设计项目名称1</h3>
+                                <p>项目简短描述，介绍主要功能和设计理念。</p>
+                                <a href="#" class="project-link">了解更多</a>
+                            </div>
+                        </div>
+
+                        <!-- 设计项目卡片2 -->
+                        <div class="portfolio-card">
+                            <div class="portfolio-image">
+                                <img src="images/design2.jpg" alt="设计项目2">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>设计项目名称2</h3>
+                                <p>项目简短描述，介绍主要功能和设计理念。</p>
+                                <a href="#" class="project-link">了解更多</a>
+                            </div>
+                        </div>
+
+                        <!-- 设计项目卡片3 -->
+                        <div class="portfolio-card">
+                            <div class="portfolio-image">
+                                <img src="images/design3.jpg" alt="设计项目3">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>设计项目名称3</h3>
+                                <p>项目简短描述，介绍主要功能和设计理念。</p>
+                                <a href="#" class="project-link">了解更多</a>
+                            </div>
+                        </div>
+
+                        <!-- 设计项目卡片4 -->
+                        <div class="portfolio-card">
+                            <div class="portfolio-image">
+                                <img src="images/design4.jpg" alt="设计项目4">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>设计项目名称4</h3>
+                                <p>项目简短描述，介绍主要功能和设计理念。</p>
+                                <a href="#" class="project-link">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="title mt-4">艺术项目</h2>
+                    <div class="portfolio-grid">
+                        <!-- 艺术项目卡片1 -->
+                        <div class="portfolio-card">
+                            <div class="portfolio-image">
+                                <img src="images/art1.jpg" alt="艺术项目1">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>艺术项目名称1</h3>
+                                <p>艺术作品描述，创作理念说明。</p>
+                                <a href="#" class="project-link">查看作品</a>
+                            </div>
+                        </div>
+                        <!-- 可以继续添加更多艺术项目卡片 -->
+                    </div>
+
+                    <!-- 底部信息框 -->
+                    <div class="info-box">
+                        <p>更多作品请访问我的作品集网站</p>
+                        <a href="#" class="info-link">访问作品集 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧出版物区域 -->
+            <div class="right-column">
+                <div class="section-box">
+                    <h2 class="title">学术成果</h2>
+                    <div class="publication-list">
+                        <!-- 出版物条目1 -->
+                        <div class="publication-item">
+                            <div class="publication-image">
+                                <img src="images/paper1.jpg" alt="论文1">
+                            </div>
+                            <div class="publication-info">
+                                <h3>论文标题1</h3>
+                                <p class="authors">作者1, 作者2, 作者3</p>
+                                <p class="venue">期刊/会议名称, 2023</p>
+                                <div class="publication-links">
+                                    <a href="#" class="paper-link">PDF</a>
+                                    <a href="#" class="paper-link">代码</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 出版物条目2 -->
+                        <div class="publication-item">
+                            <div class="publication-image">
+                                <img src="images/paper2.jpg" alt="论文2">
+                            </div>
+                            <div class="publication-info">
+                                <h3>论文标题2</h3>
+                                <p class="authors">作者1, 作者2, 作者3</p>
+                                <p class="venue">期刊/会议名称, 2023</p>
+                                <div class="publication-links">
+                                    <a href="#" class="paper-link">PDF</a>
+                                    <a href="#" class="paper-link">代码</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 出版物条目3 -->
+                        <div class="publication-item">
+                            <div class="publication-image">
+                                <img src="images/paper3.jpg" alt="论文3">
+                            </div>
+                            <div class="publication-info">
+                                <h3>论文标题3</h3>
+                                <p class="authors">作者1, 作者2, 作者3</p>
+                                <p class="venue">期刊/会议名称, 2023</p>
+                                <div class="publication-links">
+                                    <a href="#" class="paper-link">PDF</a>
+                                    <a href="#" class="paper-link">代码</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 底部信息框 -->
+                    <div class="info-box">
+                        <p>查看完整学术简历</p>
+                        <a href="cv.html" class="info-link">访问CV页面 →</a>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 
