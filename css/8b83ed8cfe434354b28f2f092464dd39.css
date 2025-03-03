@@ -1,0 +1,14 @@
+﻿@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(../static/fonts/u-440qyriqwlorhsvowk_l5-fczj.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: local('Merriweather Black'), local('Merriweather-Black'), url(../static/fonts/u-4n0qyriqwlorhsvowk_l52_wfzwmf_.ttf) format('truetype');
+}

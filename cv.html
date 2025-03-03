@@ -4,21 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primav - CV</title>
-
-    <!-- Meta Data -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="format-detection" content="address=no" />
-    <meta name="author" content="PrimavLi" />i
-    <meta name="description" content="A personal website." />
-
-    <!-- Styles -->
+    <title>关于primav</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/style_project.css">
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/style_project.css"> -->
     <!-- 按顺序加载所需库 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -26,7 +16,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <!-- 添加 imagesLoaded 库 -->
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-
+    <!-- 添加 Chart.js 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/icomoon.css">
 
 </head>
 
@@ -49,7 +42,8 @@
         </div>
     </div>
 
-    <div class="container">
+    <!-- 主要内容，放在上层 -->
+    <div class="container" style="position: relative; z-index: 2;">
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -61,16 +55,179 @@
         </nav>
 
         <main class="content">
-            <!-- 内容区域 -->
+            <!-- 左侧固定栏 -->
+            <div class="left-sidebar">
+                <div class="sidebar box shadow pb-0 sticky-column">
+                    <div class="profile-photo">
+                        <img src="assets/images/avatar.jpg" alt="Primav的照片">
+                    </div>
+                    <div class="basic-info">
+                        <h2>Primav Li</h2>
+                        <p>李雪琛</p>
+                        <p>Master Student @ Tongji</p>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/你的链接" target="_blank" class="social-link">
+                            <img src="assets/icons/linkedin.svg" alt="LinkedIn">
+                        </a>
+                        <a href="https://dribbble.com/你的链接" target="_blank" class="social-link">
+                            <img src="assets/icons/dribbble.svg" alt="Dribbble">
+                        </a>
+                        <a href="https://behance.net/你的链接" target="_blank" class="social-link">
+                            <img src="assets/icons/behance.svg" alt="Behance">
+                        </a>
+                    </div>
+
+                    <!-- 添加新的信息区块 -->
+                    <div class="sidebar__info box-inner box-inner--rounded">
+                        <ul class="contacts-block">
+                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Address">
+                                <i class="font-icon icon-location"></i> Shanghai, China
+                            </li>
+                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="E-mail">
+                                <i class="icon-envelope"></i> primav1022@tongji.edu.cn
+                            </li>
+                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top"
+                                title="Education">
+                                <i class="icon-education"></i> College of Design and Innovation
+                            </li>
+                        </ul>
+
+                        <a href="assets/files/CV_PrimavLi.pdf" class="cv-download" download>
+                            Download CV
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- 右侧内容区域 -->
+            <div class="right-content">
+                <div class="profile-intro">
+                    <h1>Resume</h1>
+                    <div class="pb-0">
+                        <div class="row">
+                            <!-- 教育经历 -->
+                            <div class="col-24 col-lg-6">
+                                <h2 class="title title--h3"><img class="title-icon"
+                                        src="assets/icons/icon-education.svg" alt="" /> 教育经历</h2>
+                                <div class="timeline">
+                                    <div class="timeline">
+                                        <!-- Item -->
+                                        <article class="timeline__item">
+                                            <h5 class="title title--h5 timeline__title">University School of the Arts
+                                            </h5>
+                                            <span class="timeline__period">2007 — 2009</span>
+                                            <p class="timeline__description">Nemo enims ipsam voluptatem, blanditiis
+                                                praesentium voluptum delenit atque corrupti, quos dolores et quas
+                                                molestias exceptur.</p>
+                                        </article>
+
+                                        <!-- Item -->
+                                        <article class="timeline__item">
+                                            <h5 class="title title--h5 timeline__title">New York Academy of Art</h5>
+                                            <span class="timeline__period">2005 — 2007</span>
+                                            <p class="timeline__description">Ratione voluptatem sequi nesciunt, facere
+                                                quisquams facere menda ossimus, omnis voluptas assumenda est omnis..</p>
+                                        </article>
+
+                                        <!-- Item -->
+                                        <article class="timeline__item">
+                                            <h5 class="title title--h5 timeline__title">High School of Art and Design
+                                            </h5>
+                                            <span class="timeline__period">2003 — 2005</span>
+                                            <p class="timeline__description">Duis aute irure dolor in reprehenderit in
+                                                voluptate, quila voluptas mag odit aut fugit, sed consequuntur magni
+                                                dolores eos.</p>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 工作经历 -->
+                            <div class="col-12 col-lg-6">
+                                <h2 class="title title--h3"><img class="title-icon"
+                                        src="assets/icons/icon-experience.svg" alt="" /> 工作经历</h2>
+                                <div class="timeline">
+                                    <!-- Item -->
+                                    <article class="timeline__item">
+                                        <h5 class="title title--h5 timeline__title">Creative Director</h5>
+                                        <span class="timeline__period">2015 — Present</span>
+                                        <p class="timeline__description">Nemo enim ipsam voluptatem blanditiis
+                                            praesentium voluptum delenit atque corrupti, quos dolores et qvuas molestias
+                                            exceptur.</p>
+                                    </article>
+
+                                    <!-- Item -->
+                                    <article class="timeline__item">
+                                        <h5 class="title title--h5 timeline__title">Art Director</h5>
+                                        <span class="timeline__period">2013 — 2015</span>
+                                        <p class="timeline__description">Nemo enims ipsam voluptatem, blanditiis
+                                            praesentium voluptum delenit atque corrupti, quos dolores et quas molestias
+                                            exceptur.</p>
+                                    </article>
+
+                                    <!-- Item -->
+                                    <article class="timeline__item">
+                                        <h5 class="title title--h5 timeline__title">Web Designer</h5>
+                                        <span class="timeline__period">2010 — 2013</span>
+                                        <p class="timeline__description">Nemo enims ipsam voluptatem, blanditiis
+                                            praesentium voluptum delenit atque corrupti, quos dolores et quas molestias
+                                            exceptur.</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 技能雷达图部分 -->
+                <div class="box-inner pb-0">
+                    <h2 class="title title--h3">Skills</h2>
+                    <div class="skills-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <!-- 设计技能 -->
+                        <div class="skill-chart-wrapper" style="min-width: 0;">
+                            <h3 class="title title--h5">Design Skills</h3>
+                            <canvas id="designSkillsChart"></canvas>
+                        </div>
+
+                        <!-- 编程技能 -->
+                        <div class="skill-chart-wrapper" style="min-width: 0;">
+                            <h3 class="title title--h5">Coding Skills</h3>
+                            <canvas id="codingSkillsChart"></canvas>
+                        </div>
+
+                        <!-- 3D建模技能 -->
+                        <div class="skill-chart-wrapper" style="min-width: 0;">
+                            <h3 class="title title--h5">3D Modeling Skills</h3>
+                            <canvas id="modelingSkillsChart"></canvas>
+                        </div>
+
+                        <!-- 其他技能 -->
+                        <!-- <div class="skill-chart-wrapper" style="min-width: 0;">
+                                            <h3 class="title title--h5">Other Skills</h3>
+                                            <canvas id="otherSkillsChart"></canvas>
+                                        </div> -->
+
+
+                    </div>
+                </div>
+                <!-- Footer -->
+                <footer class="footer">© 2025 Design and Code by Primav</footer>
+            </div>
+
         </main>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="js/particle.js"></script>
+    <!-- 在底部加载你的脚本 -->
+    <script src="js/1.js"></script>
     <script src="js/animation.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/chart.js"></script>
 </body>
 
 </html>

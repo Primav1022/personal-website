@@ -66,6 +66,12 @@
   
 ------------------------------------------------ */
 
+@import url(../assets/images/bootstrap.min.css);
+@import url(swiper.min.css);
+@import url("3c1a370137fa4e58ac1a6bd6a8da523d.css");
+@import url("8b83ed8cfe434354b28f2f092464dd39.css");
+@import url(icomoon.css);
+
 * {
     margin: 0;
     padding: 0;
@@ -233,9 +239,9 @@ body {
 /* 左侧栏 */
 .left-sidebar {
     position: sticky;
-    top: 100px;
+    top: 150px;
     height: fit-content;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255， 0.9);
     backdrop-filter: blur(5px);
     border-radius: 15px;
     padding: 20px;
@@ -329,11 +335,33 @@ body {
 }
 
 .contacts-block__item i {
-    position: absolute;
-    left: 0;
-    top: 3px;
-    font-size: 1.2em;
-    color: #007bff;
+    color: #ed65ff !important;
+}
+
+.contacts-block__item:hover i {
+    color: #007bff !important;
+}
+
+.contacts-block .font-icon {
+    color: #6c757d; /* 默认颜色 */
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.contacts-block__item:hover .font-icon {
+    color: #ed65ff; /* 鼠标悬停时的颜色 */
+    transition: color 0.3s ease;
+}
+
+.sidebar__info .contacts-block .contacts-block__item i.font-icon {
+    color: #ed65ff !important; /* 使用!important确保样式生效 */
+    margin-right: 8px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.sidebar__info .contacts-block .contacts-block__item:hover i.font-icon {
+    color: #007bff !important; /* 鼠标悬停时的颜色 */
 }
 
 /* 防止内容加载时的布局跳动 */
@@ -437,6 +465,77 @@ html {
         opacity: 0;
     }
 }
+
+
+/* -----------------------------------------------------------------
+    - timeline
+----------------------------------------------------------------- */
+.timeline {
+    margin-top: 1.8rem;
+    padding-left: .5rem;
+}
+
+.timeline__item {
+    border-left: 1px solid #F0F0F6;
+    padding-bottom: .6rem;
+    padding-left: 1.4rem;
+    position: relative;
+}
+
+.timeline__item::before {
+    content: '';
+    background-color: #304CFD;
+    box-shadow: 0 0 0 3px rgba(48, 76, 253, 0.25);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    height: 10px;
+    width: 10px;
+}
+
+.timeline__item:last-child {
+    border: 0;
+}
+
+.timeline__title {
+    margin-bottom: 0;
+    position: relative;
+    top: -.3rem;
+}
+
+.timeline__period {
+    color: #8697A8;
+    font-size: .875rem;
+}
+
+.timeline__description {
+    margin-top: .5rem;
+    color: #5F6F81;
+    line-height: 1.5;
+}
+
+/* 标题图标样式 */
+.title-icon {
+    margin-right: .5rem;
+    margin-top: -4px;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+/* 响应式调整 */
+@media only screen and (max-width: 580px) {
+    .timeline__description {
+        margin-top: .2rem;
+    }
+    
+    .title-icon {
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
+
 
 /* -----------------------------------------------------------------
     - Footer

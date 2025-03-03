@@ -1,0 +1,56 @@
+﻿@font-face {
+  font-family: 'Archivo';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Archivo Italic'), local('Archivo-Italic'), url(../static/fonts/k3kso8udi-1m0wlsfdzylghb.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Archivo Medium Italic'), local('Archivo-MediumItalic'), url(../static/fonts/k3kxo8udi-1m0wlsfdzq30lrlokn.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Archivo SemiBold Italic'), local('Archivo-SemiBoldItalic'), url(../static/fonts/k3kxo8udi-1m0wlsfdzq80xrlokn.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Archivo Bold Italic'), local('Archivo-BoldItalic'), url(../static/fonts/k3kxo8udi-1m0wlsfdzql0trlokn.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Archivo Regular'), local('Archivo-Regular'), url(../static/fonts/k3kqo8udi-1m0wlsfdnokw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Archivo Medium'), local('Archivo-Medium'), url(../static/fonts/k3kvo8udi-1m0wlsdsrlo0bhkq.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Archivo SemiBold'), local('Archivo-SemiBold'), url(../static/fonts/k3kvo8udi-1m0wlsdqbmo0bhkq.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Archivo Bold'), local('Archivo-Bold'), url(../static/fonts/k3kvo8udi-1m0wlsdwlno0bhkq.ttf) format('truetype');
+}
