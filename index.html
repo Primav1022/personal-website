@@ -48,7 +48,6 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="cv.html">CV</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="hobby.html">Hobby</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
@@ -69,39 +68,40 @@
                     <!-- Social -->
                     <div class="social-links">
                         <a href="https://linkedin.com/in/你的链接" target="_blank" class="social-link">
-                            <img src="assets/icons/linkedin.svg" alt="LinkedIn">
+                            <i class="font-icon icon-linkedin2" alt="LinkedIn"></i>
                         </a>
                         <a href="https://dribbble.com/你的链接" target="_blank" class="social-link">
-                            <img src="assets/icons/dribbble.svg" alt="Dribbble">
+                            <i class="font-icon icon-twitter" alt="Twitter"></i>
                         </a>
-                        <a href="https://behance.net/你的链接" target="_blank" class="social-link">
-                            <img src="assets/icons/behance.svg" alt="Behance">
+                        <a href="https://github.com/Primav1022" target="_blank" class="social-link">
+                            <i class="font-icon icon-github" alt="Github"></i>
                         </a>
                     </div>
 
                     <!-- 添加新的信息区块 -->
                     <div class="sidebar__info box-inner box-inner--rounded">
                         <ul class="contacts-block">
-                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Address">
+                            <li data-toggle="tooltip" data-placement="top" title="Address">
                                 <i class="font-icon icon-location"></i> Shanghai, China
                             </li>
-                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="E-mail">
+                            <li data-toggle="tooltip" data-placement="top" title="E-mail">
                                 <i class="font-icon icon-envelope"></i> primav1022@tongji.edu.cn
                             </li>
-                            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Education">
-                                <i class="icon-education"></i> College of Design and Innovation
+                            <li data-toggle="tooltip" data-placement="top" title="Education">
+                                <i class="font-icon icon-calendar"></i> College of Design and Innovation, Tongji
+                                University
                             </li>
                         </ul>
-        
+
                         <a href="assets/files/CV_PrimavLi.pdf" class="cv-download" download>
                             Download CV
                         </a>
                     </div>
-        
-                    
+
+
                 </div>
             </div>
-        
+
             <!-- 右侧内容区域 -->
             <div class="right-content">
                 <div class="profile-intro">
@@ -128,53 +128,53 @@
                         others through the universal language of music.
                     </p>
                 </div>
-        
+
                 <!-- What -->
                 <div class="box-inner pb-0">
-                    <h2 class="title title--h3">What I'm Doing</h2>
+                    <h2 class="title title--h3">What I'm interested in</h2>
                     <div class="row">
                         <!-- Case Item -->
                         <div class="col-12 col-lg-6">
                             <div class="case-item box box__second">
                                 <img class="case-item__icon" src="picture/icon-design.svg" alt="" />
                                 <div>
-                                    <h3 class="title title--h5">Web Design</h3>
+                                    <h3 class="title title--h5">Creativity Supporting tool</h3>
                                     <p class="case-item__caption">The most modern and high-quality design made at a
                                         professional level.</p>
                                 </div>
                             </div>
                         </div>
-        
+
                         <!-- Case Item -->
                         <div class="col-12 col-lg-6">
                             <div class="case-item box box__second">
                                 <img class="case-item__icon" src="picture/icon-dev.svg" alt="" />
                                 <div>
-                                    <h3 class="title title--h5">Web Development</h3>
+                                    <h3 class="title title--h5">Generative AI</h3>
                                     <p class="case-item__caption">High-quality development of sites at the professional
                                         level.</p>
                                 </div>
                             </div>
                         </div>
-        
+
                         <!-- Case Item -->
                         <div class="col-12 col-lg-6">
                             <div class="case-item box box__second">
                                 <img class="case-item__icon" src="img/icon-app.svg" alt="" />
                                 <div>
-                                    <h3 class="title title--h5">Mobile Apps</h3>
+                                    <h3 class="title title--h5">Cognition Science</h3>
                                     <p class="case-item__caption">Professional development of applications for iOS and
                                         Android.</p>
                                 </div>
                             </div>
                         </div>
-        
+
                         <!-- Case Item -->
                         <div class="col-12 col-lg-6">
                             <div class="case-item box box__second">
                                 <img class="case-item__icon" src="img/icon-photo.svg" alt="" />
                                 <div>
-                                    <h3 class="title title--h5">Photography</h3>
+                                    <h3 class="title title--h5">AI for Intangible Cultural Heritage</h3>
                                     <p class="case-item__caption">I make high-quality photos of any category at a
                                         professional level.</p>
                                 </div>
@@ -182,43 +182,14 @@
                         </div>
                     </div>
                 </div>
-        
-                <!-- 技能雷达图部分 -->
-                <div class="box-inner pb-0">
-                    <h2 class="title title--h3">Skills</h2>
-                    <div class="skills-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <!-- 设计技能 -->
-                        <div class="skill-chart-wrapper" style="min-width: 0;">
-                            <h3 class="title title--h5">Design Skills</h3>
-                            <canvas id="designSkillsChart"></canvas>
-                        </div>
-        
-                        <!-- 编程技能 -->
-                        <div class="skill-chart-wrapper" style="min-width: 0;">
-                            <h3 class="title title--h5">Coding Skills</h3>
-                            <canvas id="codingSkillsChart"></canvas>
-                        </div>
-        
-                        <!-- 3D建模技能 -->
-                        <div class="skill-chart-wrapper" style="min-width: 0;">
-                            <h3 class="title title--h5">3D Modeling Skills</h3>
-                            <canvas id="modelingSkillsChart"></canvas>
-                        </div>
-        
-                        <!-- 其他技能 -->
-                        <!-- <div class="skill-chart-wrapper" style="min-width: 0;">
-                                            <h3 class="title title--h5">Other Skills</h3>
-                                            <canvas id="otherSkillsChart"></canvas>
-                                        </div> -->
-        
-        
-                    </div>
-                </div>
                 <!-- Footer -->
-                <footer class="footer">© 2025 Design and Code by Primav</footer>
+                <footer class="footer">© 2025 by Primav</footer>
             </div>
-        
-        </main>
+            
+            
+        </div>
+
+    </main>
     </div>
 
     <!-- 在底部加载你的脚本 -->

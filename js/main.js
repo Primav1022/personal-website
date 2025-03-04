@@ -1,27 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 设置加载动画时间
     const tweenTime = 3; // 秒
-    
+
     // 创建主时间轴
-    const master = gsap.timeline({delay: tweenTime-2});
-    master.eventCallback('onComplete', function() {
+    const master = gsap.timeline({ delay: tweenTime - 2 });
+    master.eventCallback('onComplete', function () {
         progressBar(); // 初始化进度条
     });
 
     // 使用 imagesLoaded 检查所有图片加载完成
-    imagesLoaded(document.body, function() {
+    imagesLoaded(document.body, function () {
         preloader(); // 初始化预加载器
     });
 
     // 预加载动画
     function preloader() {
-        const tl = gsap.timeline({paused: true});
-        
+        const tl = gsap.timeline({ paused: true });
+
         // 设置初始状态
         tl.set('.preloader', {
             opacity: 1
         });
-        
+
         // 添加动画序列
         tl.to('.preloader', {
             duration: 0.3,
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             zIndex: -1,
             ease: 'power3.inOut'
         });
-        
+
         tl.play();
     }
 
@@ -40,19 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const containerRect = containerEl.getBoundingClientRect();
         const headerHeight = 100; // 导航栏高度
         const footerEl = document.querySelector('footer'); // 如果有页脚的话
-        
+
         let lastScrollTop = 0;
         let ticking = false;
 
         function updateSticky() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const direction = scrollTop > lastScrollTop ? 'down' : 'up';
-            
+
             if (window.innerWidth > 768) { // 只在桌面版本启用
                 const containerHeight = containerEl.offsetHeight;
                 const windowHeight = window.innerHeight;
                 const sidebarFits = containerHeight <= windowHeight;
-                
+
                 if (sidebarFits) {
                     // 如果侧边栏高度小于窗口高度，简单固定定位
                     if (scrollTop >= headerHeight) {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     // 如果侧边栏高度大于窗口高度，需要处理滚动
                     const maxScroll = containerHeight - windowHeight;
-                    
+
                     if (direction === 'down' && scrollTop > lastScrollTop) {
                         // 向下滚动
                         gsap.to(containerEl, {
@@ -90,17 +90,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } else {
                 // 移动端重置位置
-                gsap.set(containerEl, {y: 0});
+                gsap.set(containerEl, { y: 0 });
             }
-            
+
             lastScrollTop = scrollTop;
             ticking = false;
         }
 
         // 监听滚动事件
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (!ticking) {
-                window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function () {
                     updateSticky();
                 });
                 ticking = true;
@@ -108,9 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // 监听窗口大小变化
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (!ticking) {
-                window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function () {
                     updateSticky();
                 });
                 ticking = true;
@@ -125,21 +125,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function progressBar() {
         // 初始化页面动画
         initializeAnimations();
-        
+
         // 触发个人介绍区域的动画
         const profilePhoto = document.querySelector('.profile-photo');
         const profileIntro = document.querySelector('.profile-intro');
-        
+
         // 照片从左侧滑入
         siteAnimations.slideIn(profilePhoto, 'left', 300);
-        
+
         // 介绍文字淡入
         siteAnimations.fadeIn(profileIntro, 600);
-        
+
         // 初始化 sticky sidebar
         stickySidebar();
     }
 });
+
 
 function initializeAnimations() {
     // 使用 GSAP 添加导航栏动画
@@ -149,7 +150,7 @@ function initializeAnimations() {
         opacity: 0,
         ease: 'power3.out'
     });
-    
+
     // 使用 Anime.js 添加内容区域动画
     anime({
         targets: '.content',
@@ -162,7 +163,7 @@ function initializeAnimations() {
 
 // 动画相关函数
 const siteAnimations = {
-    slideIn: function(element, direction, delay) {
+    slideIn: function (element, direction, delay) {
         anime({
             targets: element,
             translateX: direction === 'left' ? [-100, 0] : [100, 0],
@@ -172,8 +173,8 @@ const siteAnimations = {
             easing: 'easeOutExpo'
         });
     },
-    
-    fadeIn: function(element, delay) {
+
+    fadeIn: function (element, delay) {
         anime({
             targets: element,
             opacity: [0, 1],
@@ -182,4 +183,90 @@ const siteAnimations = {
             easing: 'easeOutExpo'
         });
     }
-}; 
+};
+
+
+
+$(document).ready(function () {
+
+    'use strict';
+
+    /*-----------------------------------------------------------------
+      Switch categories & Filter mobile
+    -------------------------------------------------------------------*/
+
+    $('.select').on('click', '.placeholder', function () {
+        var parent = $(this).closest('.select');
+        if (!parent.hasClass('is-open')) {
+            parent.addClass('is-open');
+            $('.select.is-open').not(parent).removeClass('is-open');
+        } else {
+            parent.removeClass('is-open');
+        }
+    }).on('click', 'ul>li', function () {
+        var parent = $(this).closest('.select');
+        parent.removeClass('is-open').find('.placeholder').text($(this).text());
+        parent.find('input[type=hidden]').attr('value', $(this).attr('data-value'));
+
+        $('.filter__item').removeClass('active');
+        $(this).addClass('active');
+        var selector = $(this).attr('data-filter');
+
+        $('.js-filter-container').isotope({
+            filter: selector
+        });
+        return false;
+    });
+
+
+    /*-----------------------------------------------------------------
+      Masonry
+    -------------------------------------------------------------------*/
+
+    // Portfolio
+    var $portfolioMasonry = $('.js-masonry').isotope({
+        itemSelector: '.gallery-grid__item',
+        layoutMode: 'fitRows',
+        percentPosition: true,
+        transitionDuration: '0.5s',
+        hiddenStyle: {
+            opacity: 0,
+            transform: 'scale(0.001)'
+        },
+        visibleStyle: {
+            opacity: 1,
+            transform: 'scale(1)'
+        },
+        fitRows: {
+            gutter: '.gutter-sizer'
+        },
+        masonry: {
+            columnWidth: '.gallery-grid__item',
+            gutter: '.gutter-sizer',
+            isAnimated: true
+        }
+    });
+
+    $portfolioMasonry.imagesLoaded().progress(function () {
+        $portfolioMasonry.isotope({
+            columnWidth: '.gallery-grid__item',
+            gutter: '.gutter-sizer',
+            isAnimated: true,
+            layoutMode: 'fitRows',
+            fitRows: {
+                gutter: '.gutter-sizer'
+            }
+        });
+    });
+
+
+
+    /*-----------------------------------------------------------------
+      mediumZoom
+    -------------------------------------------------------------------*/
+
+    mediumZoom('[data-zoom]', {
+        margin: 30
+    });
+
+});

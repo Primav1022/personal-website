@@ -1,36 +1,208 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人网站</title>
+    <title>关于primav</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- 按顺序加载所需库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- 添加 imagesLoaded 库 -->
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <!-- 添加 Chart.js 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+
 </head>
+
 <body>
-    <canvas id="bgCanvas"></canvas>
-    
-    <div class="container">
+    <!-- 添加预加载器 -->
+    <div class="preloader">
+        <div class="preloader__wrap">
+            <div class="circle-pulse">
+                <div class="circle-pulse__1"></div>
+                <div class="circle-pulse__2"></div>
+            </div>
+            <div class="preloader__progress"><span></span></div>
+        </div>
+    </div>
+
+    <!-- 原有的背景容器 -->
+    <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: 1;">
+        <div id="sketch-holder" style="width: 100%; height: 100%;">
+            <!-- p5.js画布会在这里创建 -->
+        </div>
+    </div>
+
+    <!-- 主要内容，放在上层 -->
+    <div class="container" style="position: relative; z-index: 2;">
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="cv.html">CV</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="hobby.html">Hobby</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
 
         <main class="content">
-            <!-- 内容区域 -->
+            <!-- 左侧固定栏 -->
+            <div class="left-sidebar box shadow">
+                <div class="sidebar box pb-0 sticky-column">
+                    <div class="profile-photo">
+                        <img src="assets/images/avatar.jpg" alt="Primav的照片">
+                    </div>
+                    <div class="basic-info">
+                        <h2>Primav Li</h2>
+                        <p>李雪琛</p>
+                        <p>Master Student @ Tongji</p>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/你的链接" target="_blank" class="social-link">
+                            <i class="font-icon icon-linkedin2"  alt="LinkedIn"></i>
+                        </a>
+                        <a href="https://dribbble.com/你的链接" target="_blank" class="social-link">
+                            <i class="font-icon icon-twitter"  alt="Twitter"></i>
+                        </a>
+                        <a href="https://github.com/Primav1022" target="_blank" class="social-link">
+                            <i class="font-icon icon-github"  alt="Github"></i>
+                        </a>
+                    </div>
+
+                    <!-- 添加新的信息区块 -->
+                    <div class="sidebar__info box-inner box-inner--rounded">
+                        <ul class="contacts-block">
+                            <li data-toggle="tooltip" data-placement="top" title="Address">
+                                <i class="font-icon icon-location"></i> Shanghai, China
+                            </li>
+                            <li data-toggle="tooltip" data-placement="top" title="E-mail">
+                                <i class="font-icon icon-envelope"></i> primav1022@tongji.edu.cn
+                            </li>
+                            <li data-toggle="tooltip" data-placement="top" title="Education">
+                                <i class="font-icon icon-calendar"></i> College of Design and Innovation, Tongji University
+                            </li>
+                        </ul>
+        
+                        <a href="assets/files/CV_PrimavLi.pdf" class="cv-download" download>
+                            Download CV
+                        </a>
+                    </div>
+        
+                    
+                </div>
+            </div>
+        
+            <!-- 右侧内容区域 -->
+            <div class="right-content">
+               
+                 <!-- About -->
+						<div class="pb-2">
+		                    <h1 class="title title--h1 title__separate">Blog</h1>
+					    </div>
+
+						<!-- News -->
+						<div class="news-grid pb-0">
+							<!-- Post -->
+							<article class="news-item box">
+							    <div class="news-item__image-wrap overlay overlay--45">
+								    <div class="news-item__date">Sep 16, 2019</div>
+									<a class="news-item__link" href="single-post.html"></a>
+								    <img class="cover lazyload" src="./assets/images/image_02.jpg" alt="" />
+								</div>
+								<div class="news-item__caption">
+								    <h2 class="title title--h4">Design Conferences in 2019</h2>
+									<p>Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>
+								</div>
+							</article>
+
+							<!-- Post -->
+							<article class="news-item box">
+							    <div class="news-item__image-wrap overlay overlay--45">
+								    <div class="news-item__date">Sep 15, 2019</div>
+									<a class="news-item__link" href="single-post.html"></a>
+								    <img class="cover lazyload" src="./assets/images/image_06.jpg" alt="" />
+								</div>
+								<div class="news-item__caption">
+								    <h2 class="title title--h4">Best Fonts Every Designer</h2>
+									<p>Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.</p>
+								</div>
+							</article>
+
+							<!-- Post -->
+							<article class="news-item box">
+							    <div class="news-item__image-wrap overlay overlay--45">
+								    <div class="news-item__date">Sep 14, 2019</div>
+									<a class="news-item__link" href="single-post.html"></a>
+								    <img class="cover lazyload" src="./assets/images/image_08.jpg" alt="" />
+								</div>
+								<div class="news-item__caption">
+								    <h2 class="title title--h4">Design Digest #80</h2>
+									<p>Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.</p>
+								</div>
+							</article>
+							
+							<!-- Post -->
+							<article class="news-item box">
+							    <div class="news-item__image-wrap overlay overlay--45">
+								    <div class="news-item__date">Sep 13, 2019</div>
+									<a class="news-item__link" href="single-post.html"></a>
+								    <img class="cover lazyload" src="./assets/images/image_07.jpg" alt="" />   
+								</div>
+								<div class="news-item__caption">
+								    <h2 class="title title--h4">UI Interactions of the week</h2>
+									<p>Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.</p>
+								</div>
+							</article>
+							
+							<!-- Post -->
+							<article class="news-item box">
+							    <div class="news-item__image-wrap overlay overlay--45">
+								    <div class="news-item__date">Sep 12, 2019</div>
+									<a class="news-item__link" href="single-post.html"></a>
+								    <img class="cover lazyload" src="./assets/images/image_05.jpg" alt="" />
+								</div>
+								<div class="news-item__caption">
+								    <h2 class="title title--h4">The Forgotten Art of Spacing</h2>
+									<p>Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								</div>
+							</article>
+							
+							<!-- Post -->
+							<article class="news-item box">
+							    <div class="news-item__image-wrap overlay overlay--45">
+								    <div class="news-item__date">Sep 15, 2019</div>
+									<a class="news-item__link" href="single-post.html"></a>
+								    <img class="cover lazyload" src="./assets/images/image_01.jpg" alt="" />
+								</div>
+								<div class="news-item__caption">
+								    <h2 class="title title--h4">Design Digest #79</h2>
+									<p>Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.</p>
+								</div>
+							</article>
+						</div>
+					</div>
+                
+                <!-- Footer -->
+                <footer class="footer">© 2025 by Primav</footer>
+            </div>
+        
         </main>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="js/particle.js"></script>
+    <!-- 在底部加载你的脚本 -->
+    <script src="js/1.js"></script>
     <script src="js/animation.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/chart.js"></script>
 </body>
-</html> 
+
+</html>
