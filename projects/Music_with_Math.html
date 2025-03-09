@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <script src="../js/protect.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music with Math - Project Details</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- 必要的库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
+    <style>
+        .dark-theme {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        
+        .dark-theme .project-details {
+            color: #ffffff;
+        }
+        
+        .dark-theme h1, 
+        .dark-theme h2, 
+        .dark-theme h3, 
+        .dark-theme h4, 
+        .dark-theme h5, 
+        .dark-theme h6 {
+            color: #ffffff;
+        }
+        
+        .dark-theme p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .dark-theme .main-nav a {
+            color: #ffffff;
+        }
+        
+        .dark-theme .main-nav a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .dark-theme .footer {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .dark-theme ul li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* 画布作为背景 */
+        canvas {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            z-index: -1;  /* 改为负值，确保在最底层 */
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 内容容器样式 */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        /* 控制按钮样式 */
+        .control-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+        .control-button {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+        .control-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .start-button {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+        .start-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        #fileInput {
+            display: none;
+        }
+        .upload-info {
+            color: white;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .project-details {
+            background: rgba(26, 26, 26, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(3px);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- 预加载器 -->
+    <div class="preloader" style="z-index: 1000;">
+        <div class="preloader__wrap">
+            <div class="circle-pulse">
+                <div class="circle-pulse__1"></div>
+                <div class="circle-pulse__2"></div>
+            </div>
+            <div class="preloader__progress"><span></span></div>
+        </div>
+    </div>
+
+    <!-- 开始按钮 -->
+    <button id="startButton" class="start-button" style="z-index: 10;">点击开始音乐可视化</button>
+    
+    <!-- 控制按钮 -->
+    <div class="control-buttons">
+        <button id="pauseButton" class="control-button">暂停</button>
+        <button id="uploadButton" class="control-button">上传新音乐</button>
+        <input type="file" id="fileInput" accept="audio/*">
+        <div id="uploadInfo" class="upload-info"></div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="content-wrapper">
+        <div class="container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../cv.html">CV</a></li>
+                    <li><a href="../projects.html">Projects</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                </ul>
+            </nav>
+
+            <main class="content-project-single">
+                <div class="project-details">
+                    <div class="project-header">
+                        <h1><strong><em>Music with Math</em></strong>: Interactive Audio Visualization</h1>
+                        <p>An interactive audio visualization project that combines mathematical patterns with music. The visualization creates dynamic circular patterns that respond to audio frequency and amplitude, creating an immersive visual experience that bridges the gap between mathematical beauty and musical expression.</p>
+                        
+                        <div id="canvas-container" style="width: 100%; height: 500px; margin: 20px 0; position: relative;">
+                            <!-- p5.js canvas will be inserted here -->
+                        </div>
+
+                        <p>This project explores the relationship between sound and visual patterns through mathematical transformations. The visualization uses:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li>Fast Fourier Transform (FFT) for audio analysis</li>
+                            <li>Parametric equations for circle generation</li>
+                            <li>Dynamic color mapping based on audio frequencies</li>
+                            <li>Interactive elements responding to sound input</li>
+                        </ul>
+                        <p>Year：2022 in Politecnico di Milano. 
+                           Class：Shapes and algorithms. 
+                           Supervisor by <a href="https://scholar.google.it/citations?user=V8PMnG4AAAAJ&hl=it">Anna Scotti</a>
+                        </p>
+                    </div>
+                </div>
+                <footer class="footer">© 2025 by Primav</footer>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // P5.js sketch
+        let song;
+        let fft;
+        const MAX_CIRCLE_CNT = 2500, MIN_CIRCLE_CNT = 100;
+        const MAX_VERTEX_CNT = 24, MIN_VERTEX_CNT = 3;
+        let circleCnt = MIN_CIRCLE_CNT;
+        let vertexCnt = MIN_VERTEX_CNT;
+        let isPlaying = false;
+        let audioStarted = false;
+        let bass, mid, high;
+        let isPaused = false;
+        let lastFrameTime = 0;
+        let animationTime = 0;
+        
+        // 添加节奏检测相关变量
+        let beatThreshold = 0.11;
+        let beatDecayRate = 0.98;
+        let beatHoldFrames = 30;
+        let beatCutoff = 0;
+        let beatTime = 0;
+        let lastBeatTime = 0;
+        let beatLevel = 0;
+        let levelHistory = [];
+        let beatDetected = false;
+
+        // 添加旋律速度检测变量
+        let lastSpectrum = [];
+        let melodyChangeRate = 0;
+        let melodyHistory = [];
+        const MELODY_HISTORY_LENGTH = 15;
+        const MELODY_RANGE = [300, 4000];
+        const MELODY_AMPLIFICATION = 8;
+
+        // 在页面加载完成后关闭预加载器
+        $(window).on('load', function() {
+            setTimeout(function() {
+                $('.preloader').fadeOut(400);
+                $('#startButton').fadeIn(400);
+            }, 400);
+        });
+
+        function preload() {
+            soundFormats('mp3', 'ogg');
+            loadAudioFile('../assets/audio/Julian Zheng - Mystery of love (圆号完整版）（翻自 苏菲洋斯蒂文斯）.mp3');
+        }
+
+        function loadAudioFile(url) {
+            if (song) {
+                song.stop();
+                song.disconnect();
+            }
+            
+            song = loadSound(url, 
+                () => {
+                    console.log('音频加载成功');
+                    // 音频加载成功后初始化FFT
+                    fft = new p5.FFT(0.8, 1024);
+                    song.amp(0.5); // 设置音量为50%
+                    
+                    // 显示控制按钮
+                    if (audioStarted) {
+                        $('.control-button').fadeIn(400);
+                    }
+                }, 
+                (err) => {
+                    console.error('音频加载失败:', err);
+                    alert('音频加载失败，请刷新页面重试');
+                }
+            );
+        }
+
+        function setup() {
+            let canvas = createCanvas(windowWidth, windowHeight);
+            canvas.style('z-index', '-1'); // 确保在 JavaScript 中也设置 z-index
+            canvas.parent('canvas-container');
+            
+            // 开始按钮事件监听
+            document.getElementById('startButton').addEventListener('click', startAudio);
+            
+            // 暂停按钮事件监听
+            document.getElementById('pauseButton').addEventListener('click', togglePause);
+            
+            // 上传按钮事件监听
+            document.getElementById('uploadButton').addEventListener('click', () => {
+                document.getElementById('fileInput').click();
+            });
+            
+            // 文件选择事件监听
+            document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+            
+            // 初始化音频分析参数
+            bass = mid = high = 0;
+        }
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.type.startsWith('audio/')) {
+                    const url = URL.createObjectURL(file);
+                    $('#uploadInfo').text('正在加载新音乐...');
+                    loadAudioFile(url);
+                    if (isPlaying && !isPaused) {
+                        song.play();
+                    }
+                    $('#uploadInfo').text('音乐已更换: ' + file.name);
+                } else {
+                    alert('请选择音频文件');
+                }
+            }
+        }
+
+        function togglePause() {
+            if (!isPaused) {
+                // 暂停音乐和动画
+                song.pause();
+                isPaused = true;
+                document.getElementById('pauseButton').textContent = '继续';
+                // 记录当前帧时间
+                lastFrameTime = frameCount / 20;
+            } else {
+                // 继续播放音乐和动画
+                song.play();
+                isPaused = false;
+                document.getElementById('pauseButton').textContent = '暂停';
+                // 恢复动画时间
+                frameCount = lastFrameTime * 20;
+            }
+        }
+
+        function startAudio() {
+            if (!audioStarted) {
+                userStartAudio().then(() => {
+                    song.play();
+                    isPlaying = true;
+                    audioStarted = true;
+                    document.getElementById('startButton').style.display = 'none';
+                    $('.control-button').fadeIn(400);
+                }).catch(err => {
+                    console.error('音频启动失败:', err);
+                    alert('音频启动失败，请检查浏览器设置并刷新页面重试');
+                });
+            }
+        }
+
+        function draw() {
+            background(0, 20);
+            translate(width / 2, height / 2);
+
+            if (isPlaying && song.isPlaying()) {
+                updateCntByMusic();
+            }
+
+            // 更新动画时间
+            if (!isPaused) {
+                animationTime = frameCount / 20;
+            }
+
+            // 添加节奏影响的缩放效果
+            let beatScale = 1;
+            if (beatDetected || frameCount - beatTime < beatHoldFrames) {
+                beatScale = 1.1 + beatLevel * 0.2;
+            }
+
+            for (let ci = 0; ci < circleCnt; ci++) {
+                let thetaC = map(ci, 0, circleCnt, 0, TWO_PI);
+                let scale = (300 + (bass * 100)) * beatScale; // 使用节奏影响整体大小
+
+                let circleCenter = getCenterByTheta(thetaC, animationTime, scale);
+                let circleSize = getSizeByTheta(thetaC, animationTime, scale);
+                let c = getColorByTheta(thetaC, animationTime);
+
+                stroke(c);
+                noFill();
+                beginShape();
+                for (let vi = 0; vi < vertexCnt; vi++) {
+                    let thetaV = map(vi, 0, vertexCnt, 0, TWO_PI);
+                    let x = circleCenter.x + cos(thetaV) * circleSize * (1 + mid * 0.9 + beatLevel * 0.3);
+                    let y = circleCenter.y + sin(thetaV) * circleSize * (1 + high * 0.2 + beatLevel * 0.2);
+                    vertex(x, y);
+                }
+                endShape(CLOSE);
+            }
+        }
+
+        function updateCntByMusic() {
+            let normalizedChange = 0; // 在函数开始时声明变量
+            
+            try {
+                let spectrum = fft.analyze();
+                
+                // 获取不同频段的能量
+                bass = fft.getEnergy("bass") / 255;
+                mid = fft.getEnergy("mid") / 255;
+                high = fft.getEnergy("treble") / 255;
+
+                // 计算旋律变化速度
+                if (lastSpectrum.length > 0) {
+                    let totalChange = 0;
+                    let count = 0;
+                    
+                    // 计算中高频范围内的频率变化
+                    for (let i = 0; i < spectrum.length; i++) {
+                        let freq = fft.getFreq(i);
+                        if (freq >= MELODY_RANGE[0] && freq <= MELODY_RANGE[1]) {
+                            // 增加高频段的权重
+                            let weight = map(freq, MELODY_RANGE[0], MELODY_RANGE[1], 1, 1.5);
+                            totalChange += Math.abs(spectrum[i] - lastSpectrum[i]) * weight;
+                            count++;
+                        }
+                    }
+                    
+                    // 计算平均变化率
+                    melodyChangeRate = count > 0 ? totalChange / count / 255 : 0;
+                    
+                    // 保存历史记录
+                    melodyHistory.push(melodyChangeRate);
+                    if (melodyHistory.length > MELODY_HISTORY_LENGTH) {
+                        melodyHistory.shift();
+                    }
+                }
+                lastSpectrum = spectrum.slice();
+
+                // 计算平均旋律变化速度（使用加权平均，最近的变化权重更大）
+                let avgMelodyChange = 0;
+                let totalWeight = 0;
+                if (melodyHistory.length > 0) {
+                    for (let i = 0; i < melodyHistory.length; i++) {
+                        let weight = (i + 1) / melodyHistory.length; // 越新的数据权重越大
+                        avgMelodyChange += melodyHistory[i] * weight;
+                        totalWeight += weight;
+                    }
+                    avgMelodyChange = avgMelodyChange / totalWeight;
+                }
+
+                // 节奏检测
+                let level = fft.getEnergy(20, 200) / 255;
+                beatLevel = level;
+                
+                // 保存能量历史
+                levelHistory.push(level);
+                if (levelHistory.length > 60) {
+                    levelHistory.shift();
+                }
+
+                // 计算平均能量
+                let sum = 0;
+                for (let i = 0; i < levelHistory.length; i++) {
+                    sum += levelHistory[i];
+                }
+                let average = sum / levelHistory.length;
+
+                // 检测节奏
+                beatCutoff *= beatDecayRate;
+                beatCutoff = Math.max(average * 1.5, beatCutoff);
+
+                if (level > beatCutoff && level > beatThreshold) {
+                    beatDetected = true;
+                    beatTime = frameCount;
+                    // 突然增加圆圈数量
+                    circleCnt = MAX_CIRCLE_CNT;
+                } else {
+                    beatDetected = false;
+                }
+
+                // 节奏后的渐变效果
+                if (!beatDetected) {
+                    let timeSinceLastBeat = frameCount - beatTime;
+                    if (timeSinceLastBeat < beatHoldFrames) {
+                        // 保持最大值一小段时间
+                        circleCnt = MAX_CIRCLE_CNT;
+                    } else {
+                        // 使用音乐能量和旋律变化的组合来影响圆圈数量
+                        let energy = (beatLevel * 0.4 + mid * 0.3 + high * 0.3);
+                        let melodyInfluence = avgMelodyChange * 0.5; // 旋律变化也影响圈层数量
+                        
+                        // 结合能量和旋律变化
+                        let targetCircles = map(energy + melodyInfluence, 0, 1.5, MIN_CIRCLE_CNT, MAX_CIRCLE_CNT);
+                        
+                        // 使用平滑的过渡
+                        circleCnt = int(lerp(circleCnt, targetCircles, 0.15));
+                        
+                        // 使用旋律变化速度来控制顶点数量
+                        let targetVertices = map(melodyInfluence, 0, 1, MAX_VERTEX_CNT, MIN_VERTEX_CNT);
+                        
+                        // 使用更慢的过渡速度
+                        vertexCnt = int(lerp(vertexCnt, targetVertices, 0.15));
+                    }
+                }
+
+                // 确保值在有效范围内，并确保顶点数为整数
+                circleCnt = constrain(circleCnt, MIN_CIRCLE_CNT, MAX_CIRCLE_CNT);
+                vertexCnt = constrain(Math.round(vertexCnt), MIN_VERTEX_CNT, MAX_VERTEX_CNT);
+
+                // 调试输出
+                console.log('Melody Change:', normalizedChange.toFixed(3), 'Vertices:', vertexCnt);
+
+            } catch (err) {
+                console.error('FFT分析错误:', err);
+                circleCnt = MIN_CIRCLE_CNT;
+                vertexCnt = MIN_VERTEX_CNT;
+            }
+        }
+
+        function getCenterByTheta(theta, time, scale) {
+            let x = cos(theta) * (0.6 + 0.2 * cos(theta * 6.0 + cos(theta * 8.0 + time))) * scale;
+            let y = sin(theta) * (0.6 + 0.2 * cos(theta * 6.0 + cos(theta * 8.0 + time))) * scale;
+            return createVector(x, y);
+        }
+
+        function getSizeByTheta(theta, time, scale) {
+            return scale * (0.2 + 0.12 * cos(theta * 9.0 - time * 2.0));
+        }
+
+        function getColorByTheta(theta, time) {
+            let th = 8.0 * theta + time * 2.0;
+            // 使用音频频率影响颜色
+            let r = 0.6 + 0.4 * cos(th + bass * PI);
+            let g = 0.6 + 0.4 * cos(th - PI / 3 + mid * PI);
+            let b = 0.6 + 0.4 * cos(th - PI * 2.0 / 3.0 + high * PI);
+            let alpha = map(circleCnt, MIN_CIRCLE_CNT, MAX_CIRCLE_CNT, 150, 30);
+            return color(r * 255, g * 255, b * 255, alpha);
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+        }
+    </script>
+</body>
+</html>
+

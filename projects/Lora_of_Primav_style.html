@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <script src="../js/protect.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lora of Primav_style - Project Details</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- 按顺序加载所需库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
+</head>
+
+<body>
+    <!-- 添加预加载器 -->
+    <div class="preloader">
+        <div class="preloader__wrap">
+            <div class="circle-pulse">
+                <div class="circle-pulse__1"></div>
+                <div class="circle-pulse__2"></div>
+            </div>
+            <div class="preloader__progress"><span></span></div>
+        </div>
+    </div>
+
+    <!-- 背景容器 -->
+    <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: 1;">
+        <div id="sketch-holder" style="width: 100%; height: 100%;"></div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container" style="position: relative; z-index: 10;">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-project">
+            <div class="project-details" style="position: relative; z-index: 11;">
+                <div class="project-header">
+                    <h1><strong><em>LORA of Primav_style</em></strong>： A Low-Rank Adaptation of Large Language Models
+                        of myself</h1>
+                    <p>Before I turned 22, I was an illustrator with my own painting field and style. Here are my
+                        personal websites, <a href="https://www.pixiv.net/users/7691891">Pixiv</a> and <a
+                            href="https://kaltertag.lofter.com/">Lofter</a>. I used to earn a considerable income from
+                        painting and had over 20,000 followers. Now, I'm busy with scientific research and don't have
+                        time to paint anymore. So, I've trained a LoRA model based on my personal style. You can
+                        download it here and use it with large models. </p>
+                    <p><strong><em>Here are my original works.</em></strong></p>
+                    <img src="../assets/images/image_011.png" alt="illustration" style="width: 100%; margin: 20px 0;">
+                    <p>Here are some of my painting and you can find more details in pixiv and lofter.</p>
+                    <p>In the technical implementation, I carefully selected 100 of my personal paintings as the
+                        training dataset. I chose flux1s as the base model and used florensa to automatically annotate
+                        all images to generate training labels. The entire model training process was completed in the
+                        flux gym environment. Through this method, my personal painting style was successfully extracted
+                        and integrated into the LoRA model.</p>
+                    <button onclick="window.location.href='https://civitai.com/models/1334896?modelVersionId=1507337'"
+                        class="download-btn"
+                        style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                        <i class="fas fa-download" style="margin-right: 8px;"></i>
+                        下载 Primav 风格的 LoRA 模型
+                    </button>
+                    <div></div>
+                    <p><strong><em>Here are some of the results of the model.</em></strong></p>
+                    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; margin: 20px 0;">
+                        <!-- 第一行 -->
+                        <img src="../assets/images/primav-style_009240_00_20250121005145.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_009486_00_20250121011310.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_009684_00_20250121013041.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_010746_00_20250121030458.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_010758_00_20250121030603.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_010761_00_20250121030620.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+
+                        <!-- 第二行 -->
+                        <img src="../assets/images/primav-style_011025_00_20250121033037.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_011640_00_20250121042515.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_011724_00_20250121043235.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_012408_00_20250121053209.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_012525_00_20250121054222.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_013170_00_20250121063840.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+
+                        <!-- 第三行 -->
+                        <img src="../assets/images/primav-style_013215_00_20250121064235.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_013284_00_20250121064837.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_013608_00_20250121071717.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_013746_00_20250121072918.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_014343_00_20250121082109.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                        <img src="../assets/images/primav-style_014220_00_20250121081024.png" alt="lora result"
+                            style="width: 100%; border-radius: 10px;">
+                    </div>
+
+                    <p><strong><em>Primav_style</em></strong> is an ongoing training.Only the painting style of faces
+                        has been trained here. The content related to bodies, a series of plants, etc., hasn't been
+                        incorporated into this model yet.
+                    </p>
+                    <p>Year：2025.</p>
+                </div>
+            </div>
+            <footer class="footer">© 2025 by Primav</footer>
+        </main>
+    </div>
+
+    <!-- 脚本 -->
+    <script src="../js/1.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/chart.js"></script>
+</body>
+
+</html>

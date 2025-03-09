@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <script src="../js/protect.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Visualization of the Twenty-Four Solar Terms - Project Details</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- 按顺序加载所需库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
+</head>
+
+<body>
+    <!-- 添加预加载器 -->
+    <div class="preloader">
+        <div class="preloader__wrap">
+            <div class="circle-pulse">
+                <div class="circle-pulse__1"></div>
+                <div class="circle-pulse__2"></div>
+            </div>
+            <div class="preloader__progress"><span></span></div>
+        </div>
+    </div>
+
+    <!-- 背景容器 -->
+    <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: 1;">
+        <div id="sketch-holder" style="width: 100%; height: 100%;"></div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container" style="position: relative; z-index: 10;">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-project">
+            <div class="project-details" style="position: relative; z-index: 11;">
+                <div class="project-header">
+                    <h1><strong><em>The 24 Solar Terms</em></strong>：The Time and Space View of the Interaction between Everything of Ancient Chinese.</h1>
+                        <p>From bottom to top on the left side, it shows the expressions ranging from geography to astronomy, which is the TianDiTu (Heaven and Earth Map). At the bottom, it explains the provinces where the observation of the Twenty-Four Solar Terms is the most accurate near the 0-degree Celsius isotherm. The four small diagrams on the left side, from bottom to top, are respectively: the diagram of solar terms and temperature, the barbell chart of the sowing and harvesting time of crops in relation to solar terms, the diagram of solar terms and precipitation/precipitation days, and the circular broken line chart of solar terms and the solar altitude angle. These aspects together constitute the cyclical changes of the physical world with the solar terms. The chord diagram of the disc mainly introduces which aspects among the four directions of time passage, precipitation, phenological phenomena, and temperature changes each of the Twenty-Four Solar Terms describes. It can be seen that eight solar terms such as the Winter Solstice mainly describe the passage of time, while Grain in Ear describes phenological phenomena, and Major Heat and Minor Heat describe temperature....</p>
+                        <img src="../assets/images/二十四节气_时空观_kv1015_page1-04.png" alt="24 Project" style="width: 100%; margin: 20px 0;">
+                        <img src="../assets/images/二十四节气_时空观_画卷-02.png" alt="24 Project" style="width: 100%; margin: 20px 0;">
+                        <p>At the same time, through research, we also found that the ancient Chinese twelve musical scales also have a one-to-one correspondence with the solar terms. The upper half of the diagram on the right side is a phenological diagram. The data comes from the seventy-two pentads of the Twenty-Four Solar Terms. Each solar term has three pentads, totaling seventy-two phenological pentads. Each pentad corresponds to a phenological phenomenon, covering a wide range of almost everything between heaven and earth, including cicadas, frogs, tigers, duckweeds, bitter herbs, the east wind, rainbows, etc. The y-axis of this diagram represents the change in average temperature, and the x-axis represents the seventy-two phenological pentads. Illustrations corresponding to the phenological pentads are added. For example, in the first five days of the Beginning of Spring, "the east wind thaws the ice", in the first five days of Grain Rain, "duckweeds begin to grow", and in the first five days of Major Cold, "rotten grass turns into fireflies", etc. With the aid of a radar chart, it can be seen that the Twenty-Four Solar Terms have an impact not only on human beings but also on plants, animals, wind, rain, clouds, and snow between heaven and earth, and it also reminds the ancients to conform to the seasons. </p>
+                        <img src="../assets/images/二十四节气_时空观_kv1015_page4-05.png" alt="24 Project" style="width: 100%; margin: 20px 0;">
+                        <p> The lower half of the diagram expresses the influence of the Twenty-Four Solar Terms at the humanistic level, which is a cultural diagram. The data comes from an incomplete collection of 3,000 ancient poems from the Qin Dynasty to the Qing Dynasty. It extracts the relationships between these poems and the Twenty-Four Solar Terms, as well as the corresponding authors. It is not difficult to see that in the dynasties with the most vigorous cultural development, such as the Tang, Song, Yuan, Ming, and Qing Dynasties, there are more poems about the solar terms. Moreover, the Beginning of Spring, Qingming (Tomb-Sweeping Day), the Beginning of Autumn, and the Winter Solstice are the most favored solar terms by literati, which is closely related to the cultural cores behind these solar terms. Then we carried out a word frequency analysis and summarized the words that are more frequently used in the poems about the four solar terms of the Beginning of Spring, Qingming, the Beginning of Autumn, and the Winter Solstice. For example, the words related to the Beginning of Spring include the east wind, plum blossoms, earth oxen, and today, etc., with a relatively positive and enthusiastic semantic meaning; the words related to Qingming include Cold Food Festival, swallows, fragrant grass, willows, and the end of the world, with a more refreshing, melodious, and lamenting semantic meaning; the words related to the Beginning of Autumn include parasol trees, the sound of cicadas, the west wind, and thousands of miles, etc., with a semantic meaning that is rather desolate, lonely, and vast; the words related to the Winter Solstice include time, heaven and earth, plum blossoms, last year, yin and yang, etc., which are more magnificent and inclusive. It is not difficult to find that these images and expressions that have been passed down for thousands of years are deeply related to the physical phenomena and phenological phenomena mentioned above, and these words and images also deeply constitute a part of Chinese culture in the hearts of the ancients and even modern people. The concept of time and space represented by the Twenty-Four Solar Terms is just a small concept in Chinese culture and philosophy, but it has deeply participated in the construction of the ancient Chinese people's understanding of all things. It is hoped that this visualization work can use data to show the audience this magical and natural interaction between all things that may have long been ignored by modern people. </p>
+                        <p>Year：2023.</p>
+                    </div>
+                </div>
+                <footer class="footer">© 2025 by Primav</footer>
+        </main>
+    </div>
+
+    <!-- 脚本 -->
+    <script src="../js/1.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/chart.js"></script>
+</body>
+
+</html>
