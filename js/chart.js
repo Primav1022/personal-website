@@ -41,25 +41,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // 设计技能图表
     createRadarChart(
         'designSkillsChart',
-        ['Photoshop', 'Illustrator', 'InDesign', 'Figma', 'XD', 'Sketch'],
-        [85, 75, 70, 90, 80, 85],
-        '设计技能掌握程度'
+        ['Photoshop', 'Illustrator', 'AfterEffect', 'Figma', 'unity3D', 'Touchdesigner'],
+        [85, 75, 90, 90, 80, 70],
+        'Design software and Engines Skills'
     );
 
     // 编程技能图表
     createRadarChart(
         'codingSkillsChart',
         ['JavaScript', 'Python', 'Java', 'HTML/CSS', 'React', 'Node.js'],
-        [80, 85, 65, 90, 75, 70],
-        '编程技能掌握程度'
+        [70, 90, 60, 80, 75, 70],
+        'Coding Skills'
     );
 
     // 3D建模技能图表
     createRadarChart(
         'modelingSkillsChart',
-        ['Maya', '3ds Max', 'Blender', 'C4D', 'SketchUp', 'Rhino'],
-        [75, 80, 85, 70, 90, 65],
-        '3D建模技能掌握程度'
+        ['Maya', '3ds Max', 'CAD', 'Cinema4D', 'Grasshopper', 'Rhino'],
+        [60, 80, 85, 90, 70, 65],
+        '3D Modeling Skills'
     );
 
     // 其他技能图表
