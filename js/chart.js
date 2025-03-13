@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createRadarChart(
         'codingSkillsChart',
         ['JavaScript', 'Python', 'Java', 'HTML/CSS', 'React', 'Node.js'],
-        [70, 90, 60, 80, 75, 70],
+        [70, 95, 60, 80, 75, 70],
         'Coding Skills'
     );
 
