@@ -151,6 +151,80 @@ body {
   background-image: url(../assets/images/icon-education.svg);
 }
 
+  /* -----------typography----- */
+
+a {
+  color: #304CFD;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-text-decoration-skip: objects;
+  transition: color 0.3s cubic-bezier(0.72, 0.16, 0.345, 0.875);
+}
+a:hover {
+  color: #304CFD;
+  outline: none;
+  text-decoration: underline;
+}
+a.decoration--none {
+  text-decoration: none;
+}
+
+.noGutters-Top {
+  margin-top: 0 !important;
+}
+.noGutters-Bottom {
+  margin-bottom: 0 !important;
+}
+.noGutters-Left {
+  margin-left: 0 !important;
+}
+.noGutters-Right {
+  margin-right: 0 !important;
+}
+
+.description {
+  color: #F5F8F9;
+  margin-bottom: 1.9rem;
+}
+
+.foreword {
+  color: #F5F8F9;
+  font-size: 1.125rem;
+}
+
+img {
+  max-width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+iframe {
+  background-color: #44566C;
+  border: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.cover {
+  object-fit: cover;
+  object-position: center;
+  font-family: 'object-fit: cover; object-position: center;';
+  height: 100%;
+  width: 100%;
+}
+
+::-moz-selection {
+  background: transparent;
+  color: #304CFD;
+}
+
+::selection {
+  background: transparent;
+  color: #304CFD;
+}
 
 
 /* .gutter-top {
@@ -294,7 +368,16 @@ body {
   backdrop-filter: blur(5px);
   padding: 30px;
   border-radius: 15px;
+  box-sizing: border-box;
 }
+
+/* 
+.right-content-blog {
+  background: #fff;
+  box-shadow: none;
+  border-radius: 15px;
+  padding: 30px;
+} */
 
 /* 针对大屏幕优化 */
 @media only screen and (min-width: 1200px) {
@@ -630,7 +713,11 @@ html {
   margin-left: 15px;
   margin-right: 15px;
   padding: 0;
-  width: calc(50% - 30px);
+  width: calc(60% - 30px);
+  /* width: 100%;          确保宽度不超过父容器 */
+  max-width: 100%;      /* 限制最大宽度 */
+  box-sizing: border-box; /* 确保padding和border计入总宽度 */
+  overflow: hidden;     /* 防止内容溢出 */
 }
 
 @media only screen and (max-width: 992px) {
@@ -660,8 +747,10 @@ html {
   overflow: hidden;
   border-radius: 1.25rem 1.25rem 0 0;
   height: 14rem;
+  width: 60%;
   position: relative;
 }
+
 
 @media only screen and (max-width: 992px) {
   .news-item__image-wrap {
@@ -710,6 +799,9 @@ html {
   bottom: 0;
   z-index: 2;
 }
+
+
+
 
 .news-item__link {
   position: absolute;
@@ -1635,3 +1727,4 @@ html {
 .dark-theme a:hover {
     color: #77b7ff !important;
 }
+

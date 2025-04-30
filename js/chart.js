@@ -36,6 +36,7 @@ function createRadarChart(canvasId, labels, data, label) {
     });
 }
 
+
 // 当文档加载完成后初始化所有图表
 document.addEventListener('DOMContentLoaded', function() {
     // 设计技能图表
