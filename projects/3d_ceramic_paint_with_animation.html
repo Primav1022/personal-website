@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <script src="js/protect.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Ceramic Paint with Animation - Project Details</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- 按顺序加载所需库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
+</head>
+
+<body>
+    <!-- 添加预加载器 -->
+    <div class="preloader">
+        <div class="preloader__wrap">
+            <div class="circle-pulse">
+                <div class="circle-pulse__1"></div>
+                <div class="circle-pulse__2"></div>
+            </div>
+            <div class="preloader__progress"><span></span></div>
+        </div>
+    </div>
+
+    <!-- 背景容器 -->
+    <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: 1;">
+        <div id="sketch-holder" style="width: 100%; height: 100%;"></div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container" style="position: relative; z-index: 10;">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <!-- <li><a href="../blog.html">Blog</a></li> -->
+            </ul>
+        </nav>
+
+        <main class="content-project">
+            <div class="project-details" style="position: relative; z-index: 11;">
+                <div class="project-header">
+                    <h1><strong><em>Viviclay</em></strong>: Interactive Digital Preservation and Animation of Traditional Chinese Ceramic Painting Techniques</h1>
+                    
+                    <!-- UIST 2025 标签 -->
+                    <div style="position: absolute; top: 20px; right: 20px; background: rgba(0, 123, 255, 0.95); color: white; padding: 4px 8px; border-radius: 12px; font-size: 14.3px; font-weight: 600; z-index: 999;">
+                        UIST 2025
+                    </div>
+                    
+                    <!-- 项目信息栏 -->
+                    <div style="margin-bottom: 40px;">
+                        <!-- <p>
+                            <strong>Primav Li</strong>, 
+                            Qing Chen, 
+                            Xiaoming Zhang, 
+                            Wei Liu
+                        </p> -->
+
+                        <!-- 链接区域 -->
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+                            <a href="#" style="display: inline-flex; align-items: center; padding: 7.2px 14.4px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-size: 11.7px; font-weight: 500; transition: background 0.3s;">
+                                <i class="fas fa-file-pdf" style="margin-right: 5.4px;"></i>
+                                Paper (PDF)
+                            </a>
+                            <!-- <a href="#" style="display: inline-flex; align-items: center; padding: 7.2px 14.4px; background: #28a745; color: white; text-decoration: none; border-radius: 6px; font-size: 11.7px; font-weight: 500; transition: background 0.3s;">
+                                <i class="fab fa-github" style="margin-right: 5.4px;"></i>
+                                Code & Data
+                            </a> -->
+                            <!-- <a href="#" style="display: inline-flex; align-items: center; padding: 7.2px 14.4px; background: #ffc107; color: black; text-decoration: none; border-radius: 6px; font-size: 11.7px; font-weight: 500; transition: background 0.3s;">
+                                <i class="fas fa-play-circle" style="margin-right: 5.4px;"></i>
+                                Demo Video
+                            </a> -->
+                            <a href="#" style="display: inline-flex; align-items: center; padding: 7.2px 14.4px; background: #ccf000; color: rgb(0, 0, 0); text-decoration: none; border-radius: 6px; font-size: 11.7px; font-weight: 500; transition: background 0.3s;">
+                                <i class="fas fa-quote-left" style="margin-right: 5.4px;"></i>
+                                BibTeX
+                            </a>
+                        </div>
+                    </div>
+
+                    <p> We present ViviClay, a design and fabrication method that integrates thermochromic coatings with internal pipe structures to produce dynamic surface effects on ceramics. By channeling thermal fluid through embedded pathways, the surface exhibits reversible color changes, enabling animated patterns that are more programmable and varied than those of conventional thermochromic mugs.</p>
+                    
+                    <p> To address challenges in 3D printing clay—such as deformation and pipe clogging—we propose key design strategies, optimize fabrication parameters, and introduce a relief-style technique for curved surfaces. Building on this method, we develop a software tool and a set of structured design exemplars to support diverse form exploration while lowering design barriers. We demonstrate its potential through conceptual prototypes inspired by everyday everyday fluid interaction. This work represents the first exploration of 3D-printed ceramics that enable animated surface behavior in HCI, opening new directions for interactive and expressive ceramic practices.</p>
+                    
+                    <!-- 项目图片展示 -->
+                    <!-- Teaser 图片 -->
+                    <div style="width: 100%; margin: 20px 0;">
+                        <img src="../assets/images/Teaser.png" alt="3D陶瓷绘画项目概览" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.12); object-fit: cover;">
+                        <p style="font-size: 14px; color: #666; margin-top: 10px; line-height: 1.5; text-align: justify;">
+                            <strong>Figure 1.</strong> Viviclay is a design and fabrication method that combines thermochromic coatings with internal pipe structures to produce dynamic, temperature-responsive animations on ceramic surfaces. Panels (a)–(c) present drinkware-inspired vessels, each accompanied by its internal pipe layout and corresponding 3D model shown on the right. Panel (d) illustrates Karesansui, a conceptual ceramic artifact designed for ambient display, shown alongside keyframes of its color-change animation. Panel (e) features one of the paired vessels titled Share Half with You, also accompanied by its animation keyframes.
+                        </p>
+                    </div>
+                    
+                    <!-- 系统截图 -->
+                    <div style="width: 100%; margin: 20px 0;">
+                        <img src="../assets/images/tool5.png" alt="3D陶瓷动画系统截图" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.12); object-fit: cover;">
+                        <p style="font-size: 14px; color: #666; margin-top: 10px; line-height: 1.5; text-align: justify;">
+                            <strong>Figure 2.</strong> The design tool and user workflow of ViviClay.
+                        </p>
+                    </div>
+                    
+                    <h3>Key Features</h3>
+                    
+                    <h4>1. An Innovative Interactive Medium</h4>
+                    <p>ViviClay is a novel design and fabrication method that brings ceramic objects to life. By embedding 3D-printed internal pipe structures within ceramic walls and applying thermochromic coatings, ViviClay enables dynamic, reversible animations on the surface. When a thermal fluid (like hot water) flows through the channels, intricate patterns and textures appear, transforming static objects into expressive, interactive displays.</p>
+                    
+                    <h4>2. Overcoming Technical Challenges in Ceramic 3D Printing</h4>
+                    <p>The research tackles key difficulties of 3D printing with clay, such as structural collapse and pipe clogging. A core contribution is the development of a "relief-style" printing technique for curved surfaces, which ensures open and continuous internal channels. Through systematic experiments, the study optimizes crucial parameters like clay moisture content, wall thickness, and pipe geometry to achieve reliable fabrication and clear, crisp animation effects.</p>
+                    
+                    <h4>3. An Integrated Design and Simulation Tool</h4>
+                    <p>To make this technology accessible, the project includes a custom software tool built in Rhino and Grasshopper. This tool empowers designers and creators to easily design pipe layouts, customize patterns, and, most importantly, preview the thermal animation effects in a simulation before fabrication. This integrated workflow significantly lowers the barrier to creating complex, interactive ceramic forms.</p>
+                    
+                    <h4>4. Rich Design Exploration and Applications</h4>
+                    <p>The paper demonstrates ViviClay's potential through a series of imaginative prototypes. These include "Share Half with You," a pair of conceptual vessels that reveal a heart when used together; dynamic "tea pets" inspired by traditional tea culture; and an ambient "Karesansui" (dry landscape garden) display. These examples showcase the expressive potential for fluid-interactive ceramics in product design, interactive art, and cultural heritage.</p>
+                    
+                    <!-- 项目演示视频 -->
+                    <div style="width: 100%; margin: 20px 0;">
+                        <video width="100%" controls style="border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
+                            <source src="../assets/videos/d6050a12f02c3f96af42db956209ee5e.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                        <p style="font-size: 14px; color: #666; margin-top: 10px; line-height: 1.5; text-align: justify;">
+                            <strong>Video 1.</strong> ViviClay demonstration showing the dynamic thermochromic animation effects on ceramic surfaces through thermal fluid interaction.
+                        </p>
+                    </div>
+                    
+                    <h3>Technical Implementation</h3>
+                    <p>The technical implementation of ViviClay is centered on a cohesive workflow that integrates Fused Deposition Modeling (FDM) for ceramics with thermochromic coatings, all managed through a custom software tool. The fabrication process utilizes a specialized ceramic 3D printer, where stable extrusion is achieved by precisely controlling the clay's moisture content (24-28%) and using a nozzle diameter of at least 1.2mm. To overcome the primary challenge of internal pipes collapsing on curved surfaces, the research introduces a novel "relief-style" printing method. This technique models the fluid channel not as a hollow void, but as a raised, arched structure on the object's inner wall, which is then enclosed by the outer wall, ensuring structural integrity. This entire process is supported by a custom tool developed in Rhino 8 Grasshopper, which automates the generation of print-ready models embedded with optimized geometries—such as ideal wall thicknesses (1.2mm–2.0mm) and pipe cross-sections. Crucially, the tool also features an animation preview, which simulates the heat diffusion to allow for rapid design iteration before committing to the physical fabrication process.</p>
+                    
+                                       <p><strong>Year</strong>: 2024-2025</p>
+                </div>
+            </div>
+            <footer class="footer">© 2025 by Primav</footer>
+        </main>
+    </div>
+
+    <!-- 脚本 -->
+    <script src="../js/1.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/chart.js"></script>
+</body>
+
+</html>
