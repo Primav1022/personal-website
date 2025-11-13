@@ -1,9 +1,12 @@
 // 访客计数器 - 仅统计真实总访问量
 class VisitorCounter {
-    constructor() {
+    constructor(shouldCount = true) {
         this.apiUrl = 'https://api.countapi.xyz';
         this.siteName = 'primav-website';
-        this.init();
+        this.shouldCount = shouldCount;
+        if (shouldCount) {
+            this.init();
+        }
     }
 
     async init() {
@@ -23,7 +26,10 @@ class VisitorCounter {
             const data = await response.json();
             
             if (data.value) {
-                document.getElementById('total-visits').textContent = this.formatNumber(data.value);
+                const element = document.getElementById('total-visits');
+                if (element) {
+                    element.textContent = this.formatNumber(data.value);
+                }
             }
         } catch (error) {
             console.error('获取总访问量失败:', error);
@@ -36,7 +42,10 @@ class VisitorCounter {
         let visits = localStorage.getItem('site-visits') || '0';
         visits = parseInt(visits) + 1;
         localStorage.setItem('site-visits', visits.toString());
-        document.getElementById('total-visits').textContent = this.formatNumber(visits);
+        const element = document.getElementById('total-visits');
+        if (element) {
+            element.textContent = this.formatNumber(visits);
+        }
     }
 
 
@@ -54,10 +63,49 @@ class VisitorCounter {
         // 如果API失败，使用本地存储的访问量
         this.updateLocalVisits();
     }
+
+    // 获取统计数据（不增加计数）- 用于统计页面
+    async getStats() {
+        try {
+            // 获取总访问量（不增加计数）
+            const response = await fetch(`${this.apiUrl}/get/${this.siteName}/visits`);
+            const data = await response.json();
+            
+            return {
+                totalVisits: data.value || 0,
+                source: 'api'
+            };
+        } catch (error) {
+            console.error('获取统计数据失败:', error);
+            // 使用本地存储作为备选方案
+            const localVisits = localStorage.getItem('site-visits') || '0';
+            return {
+                totalVisits: parseInt(localVisits),
+                source: 'localStorage'
+            };
+        }
+    }
 }
 
 // 页面加载完成后初始化访客计数器
 document.addEventListener('DOMContentLoaded', function() {
-    new VisitorCounter();
+    // 检查是否是统计页面
+    if (document.getElementById('stats-container')) {
+        // 统计页面：只显示数据，不增加计数
+        const counter = new VisitorCounter(false);
+        counter.getStats().then(stats => {
+            const displayElement = document.getElementById('total-visits-display');
+            if (displayElement) {
+                displayElement.textContent = counter.formatNumber(stats.totalVisits);
+            }
+            const sourceElement = document.getElementById('stats-source');
+            if (sourceElement) {
+                sourceElement.textContent = `数据来源: ${stats.source === 'api' ? 'CountAPI' : '本地存储'}`;
+            }
+        });
+    } else {
+        // 普通页面：正常计数
+        new VisitorCounter(true);
+    }
 });
 

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>访客统计 - Primav</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .stats-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f9f9f9;
+        }
+        .number {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .info {
+            margin: 15px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .test-section {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .test-result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>访客统计</h1>
+    
+    <div class="stats-box">
+        <div><strong>📊 Google Analytics 访客统计</strong></div>
+        <div class="info" style="margin-top: 15px;">
+            <p>网站现在使用 Google Analytics 进行访客统计。</p>
+            <p><strong>如何查看统计数据：</strong></p>
+            <ol style="text-align: left; margin: 10px 0;">
+                <li>访问 <a href="https://analytics.google.com" target="_blank">Google Analytics</a></li>
+                <li>登录你的 Google 账号</li>
+                <li>选择你的网站属性</li>
+                <li>在"报告"中查看详细的访问数据</li>
+            </ol>
+            <p style="margin-top: 15px;"><strong>可查看的数据包括：</strong></p>
+            <ul style="text-align: left; margin: 10px 0;">
+                <li>实时访问量</li>
+                <li>总访问量和页面浏览量</li>
+                <li>用户地理位置</li>
+                <li>访问设备类型（桌面/移动/平板）</li>
+                <li>流量来源（搜索引擎/直接访问/社交媒体等）</li>
+                <li>用户行为路径</li>
+                <li>页面停留时间</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>⚙️ 配置说明</h3>
+        <div class="info" style="text-align: left;">
+            <p style="color: #d32f2f; font-weight: bold;">⚠️ 重要：请先配置你的 Google Analytics Measurement ID</p>
+            
+            <p style="margin-top: 15px;"><strong>📝 配置步骤：</strong></p>
+            <ol>
+                <li><strong>获取 Measurement ID：</strong>
+                    <ul style="margin-top: 5px; margin-left: 20px;">
+                        <li>访问 <a href="https://analytics.google.com" target="_blank">https://analytics.google.com</a></li>
+                        <li>使用 Google 账号登录</li>
+                        <li>点击左下角的 <strong>"管理"</strong> 图标（齿轮⚙️）</li>
+                        <li>在"属性"列中，点击 <strong>"数据流"</strong></li>
+                        <li>选择你的 <strong>"网站"</strong> 数据流</li>
+                        <li>在数据流详情页面，找到 <strong>"测量 ID"</strong></li>
+                        <li>复制这个 ID（格式：<code>G-XXXXXXXXXX</code>）</li>
+                    </ul>
+                </li>
+                <li style="margin-top: 10px;"><strong>配置网站：</strong>
+                    <ul style="margin-top: 5px; margin-left: 20px;">
+                        <li>打开项目中的 <code>js/ga-config.js</code> 文件</li>
+                        <li>找到第 4 行：<code>const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';</code></li>
+                        <li>将 <code>'G-XXXXXXXXXX'</code> 替换为你刚才复制的实际 ID</li>
+                        <li>例如：<code>const GA_MEASUREMENT_ID = 'G-ABC123XYZ9';</code></li>
+                        <li>保存文件</li>
+                    </ul>
+                </li>
+                <li style="margin-top: 10px;"><strong>验证配置：</strong>
+                    <ul style="margin-top: 5px; margin-left: 20px;">
+                        <li>打开你的网站（例如：https://primav.icu）</li>
+                        <li>按 <strong>F12</strong> 打开浏览器开发者工具</li>
+                        <li>切换到 <strong>"控制台"</strong>（Console）标签</li>
+                        <li>如果看到 <code style="color: green;">✅ Google Analytics 已加载</code>，说明配置成功</li>
+                        <li>如果看到 <code style="color: orange;">⚠️ 请设置 Google Analytics Measurement ID</code>，说明还需要配置</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p style="margin-top: 15px; padding: 10px; background: #e3f2fd; border-left: 4px solid #2196f3;">
+                <strong>💡 提示：</strong>配置完成后，数据可能需要几分钟到几小时才会在 Google Analytics 中显示。你可以在"实时"报告中立即查看当前访问。
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a href="index.html">返回首页</a>
+    </div>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1W3ERG64BN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1W3ERG64BN');
+    </script>
+</body>
+
+</html>
+
