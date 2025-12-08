@@ -630,6 +630,7 @@ html {
   position: relative;
 }
 
+/* 恢复原来的圆点样式 */
 .timeline__item::before {
   content: '';
   background-color: #304CFD;
@@ -640,6 +641,24 @@ html {
   left: -5px;
   height: 10px;
   width: 10px;
+}
+
+/* 时间段旁边的 logo 标签样式 */
+.timeline__logo {
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-left: 8px !important;
+  vertical-align: middle;
+  border-radius: 3px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  background-color: #f5f5f5; /* 默认背景色，确保可见 */
+  min-width: 20px;
+  min-height: 20px;
 }
 
 .timeline__item:last-child {
