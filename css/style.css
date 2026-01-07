@@ -668,6 +668,24 @@ html {
   margin-right: 15px; /* logo 和标题之间的间距 */
 }
 
+/* polimi-logo-1 特殊样式 - 缩小 10%，移除右侧 margin */
+.timeline__logo[src*="polimi-logo-1.png"] {
+  transform: scale(0.9);
+  transform-origin: center;
+  margin-right: 0 !important;
+}
+
+/* Exchange student 整个容器缩小 10% */
+.timeline__title-wrapper--small {
+  transform: scale(0.9);
+  transform-origin: left center;
+}
+
+/* Exchange student 容器内的标题字体放大 10% */
+.timeline__title-wrapper--small .timeline__title {
+  font-size: 1.2em;
+}
+
 /* 标题样式调整 */
 .timeline__title {
   margin: 0; /* 确保标题没有额外的 margin */
