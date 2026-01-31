@@ -131,7 +131,7 @@
                     <div class="gallery-grid js-masonry js-filter-container">
                         <div class="gutter-sizer"></div>
                         <!-- Item 1 -->
-                        <figure class="gallery-grid__item category-concept">
+                        <figure class="gallery-grid__item category-concept" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_001.png"
                                     data-zoom alt="" />
@@ -149,7 +149,7 @@
                         </figure>
 
                         <!-- Item 2 -->
-                        <figure class="gallery-grid__item category-concept">
+                        <figure class="gallery-grid__item category-concept" data-sort-priority="3">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_002.png"
                                     data-zoom alt="" />
@@ -169,14 +169,14 @@
                         </figure>
 
                         <!-- Item 3 - New Project -->
-                        <figure class="gallery-grid__item category-concept">
+                        <figure class="gallery-grid__item category-concept" data-sort-priority="2">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/viviclay_logo版-封面.jpg"
                                     data-zoom alt="ViviClay项目封面" />
                             </div>
                             <!-- 期刊标签 -->
                             <div class="publication-tag" style="position: absolute; top: 10px; right: 10px; background: rgba(0, 123, 255, 0.95); color: white; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; z-index: 999;">
-                                UIST 2025
+                                UIST 25
                             </div>
                             <figcaption class="gallery-grid__caption">
                                 <h4 class="title gallery-grid__title">
@@ -188,7 +188,7 @@
                         </figure>
 
                         <!-- Item - AI driven design-by-analogy -->
-                        <figure class="gallery-grid__item category-concept">
+                        <figure class="gallery-grid__item category-concept" data-sort-priority="1">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/dba.png"
                                     data-zoom alt="AI driven design-by-analogy" />
@@ -207,7 +207,7 @@
                         </figure>
 
                         <!-- Item 4 -->
-                        <figure class="gallery-grid__item category-design">
+                        <figure class="gallery-grid__item category-design" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_03.png"
                                     data-zoom alt="" />
@@ -221,7 +221,7 @@
                         </figure>
 
                         <!-- Item 4 -->
-                        <figure class="gallery-grid__item category-design">
+                        <figure class="gallery-grid__item category-design" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_003.png"
                                     data-zoom alt="" />
@@ -235,7 +235,7 @@
                         </figure>
 
                         <!-- Item 5 -->
-                        <figure class="gallery-grid__item category-design">
+                        <figure class="gallery-grid__item category-design" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_004.png"
                                     data-zoom alt="" />
@@ -249,7 +249,7 @@
                         </figure>
 
                         <!-- Item 5.5 - Herbal Universe -->
-                        <figure class="gallery-grid__item category-design">
+                        <figure class="gallery-grid__item category-design" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/herbalverse-06-06.png"
                                     data-zoom alt="Herbal Universe" />
@@ -263,7 +263,7 @@
                         </figure>
 
                         <!-- Item 6 -->
-                        <figure class="gallery-grid__item category-life">
+                        <figure class="gallery-grid__item category-life" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload"
                                     src="./assets/images/20190903103411833.gif" data-zoom alt="" />
@@ -277,7 +277,7 @@
                         </figure>
 
                         <!-- Item 7 -->
-                        <figure class="gallery-grid__item category-concept">
+                        <figure class="gallery-grid__item category-concept" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_007.png"
                                     data-zoom alt="" />
@@ -296,7 +296,7 @@
                         </figure>
 
                         <!-- Item 8 -->
-                        <figure class="gallery-grid__item category-design">
+                        <figure class="gallery-grid__item category-design" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_008.png"
                                     data-zoom alt="" />
@@ -311,7 +311,7 @@
                         </figure>
 
                         <!-- Item 9 -->
-                        <figure class="gallery-grid__item category-life">
+                        <figure class="gallery-grid__item category-life" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_009.png"
                                     data-zoom alt="" />
@@ -325,7 +325,7 @@
                         </figure>
 
                          <!-- Item 10 -->
-                         <figure class="gallery-grid__item category-life">
+                         <figure class="gallery-grid__item category-life" data-sort-priority="9">
                             <div class="gallery-grid__image-wrap">
                                 <img class="gallery-grid__image cover lazyload" src="./assets/images/image_010.jpg"
                                     data-zoom alt="" />
@@ -352,6 +352,36 @@
     </div>
 
     <!-- 在底部加载你的脚本 -->
+    <!-- 项目排序：带标签的按年份从新到旧排前面，无标签的保持原顺序排后面 -->
+    <script>
+        (function() {
+            var grid = document.querySelector('.gallery-grid.js-masonry');
+            if (!grid) return;
+            var items = Array.from(grid.querySelectorAll('.gallery-grid__item'));
+            if (items.length === 0) return;
+
+            function getYearFromTag(item) {
+                var tag = item.querySelector('.publication-tag');
+                if (!tag) return -1;
+                var text = (tag.textContent || '').trim();
+                var match = text.match(/\b(20)?(\d{2})\b/);
+                if (!match) return 0;
+                var yy = parseInt(match[2], 10);
+                var year = match[1] ? parseInt(match[1] + match[2], 10) : (yy < 50 ? 2000 + yy : 1900 + yy);
+                return year;
+            }
+
+            var tagged = [], untagged = [];
+            items.forEach(function(item) {
+                if (getYearFromTag(item) >= 0) tagged.push(item);
+                else untagged.push(item);
+            });
+            tagged.sort(function(a, b) {
+                return getYearFromTag(b) - getYearFromTag(a);
+            });
+            tagged.concat(untagged).forEach(function(item) { grid.appendChild(item); });
+        })();
+    </script>
     <script src="js/1.js"></script>
     <script src="js/animation.js"></script>
     <script src="js/main.js"></script>
