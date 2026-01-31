@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <script src="../js/protect.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI driven design-by-analogy - Project Details</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- 按顺序加载所需库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1W3ERG64BN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1W3ERG64BN');
+    </script>
+</head>
+
+<body>
+    <!-- 添加预加载器 -->
+    <div class="preloader">
+        <div class="preloader__wrap">
+            <div class="circle-pulse">
+                <div class="circle-pulse__1"></div>
+                <div class="circle-pulse__2"></div>
+            </div>
+            <div class="preloader__progress"><span></span></div>
+        </div>
+    </div>
+
+    <!-- 背景容器 -->
+    <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: 1;">
+        <div id="sketch-holder" style="width: 100%; height: 100%;"></div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container" style="position: relative; z-index: 10;">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-project">
+            <div class="project-details" style="position: relative; z-index: 11;">
+                <div class="project-header">
+                    <h1><strong>Beyond Input–Output: Rethinking Creativity through Design-by-Analogy in Human–AI Collaboration</strong></h1>
+                    <p class="project-abstract" style="margin: 1.5em 0; line-height: 1.7; color: #555;">While the proliferation of foundation models has significantly boosted individual productivity, it also introduces a potential challenge: the homogenization of creative content. In response, we revisit Design-by-Analogy (DbA), a cognitively grounded approach that fosters novel solutions by mapping inspiration across domains. However, prevailing perspectives often restrict DbA to early ideation or specific data modalities, while reducing AI-driven design to simplified input–output pipelines. Such conceptual limitations inadvertently foster widespread design fixation. To address this, we expand the understanding of DbA by embedding it into the entire creative process, thereby demonstrating its capacity to mitigate such fixation. Through a systematic review of 85 studies, we identify six forms of representation and classify techniques across seven stages of the creative process. We further discuss three major application domains: creative industries, intelligent manufacturing, and education and services, demonstrating DbA's practical relevance. Building on this synthesis, we frame DbA as a mediating technology for human-AI collaboration and outline the potential opportunities and inherent risks for advancing creativity support in HCI and design research.</p>
+
+                    <img src="../assets/images/teaser_dba.png" alt="Three dimensions of DbA and technology mediation" style="width: 100%; margin: 20px 0;">
+                    <p>This figure (a) illustrates the three dimensions through which the Design-by-Analogy (DbA) method supports creativity. It also explains (b) why DbA could be served as a technology mediation in the creative process, forming the foundation of this paper.</p>
+
+                    <img src="../assets/images/representation.png" alt="Taxonomy of six representations for Design-by-Analogy" style="width: 100%; margin: 20px 0;">
+                    <p>A taxonomy of six representations for Design-by-Analogy: (1) Semantics & Text, (2) Visual & Appearance, (3) Material & Structure, (4) Function & Attribute, (5) Interaction & Experience, and (6) Unconventional Contexts.</p>
+
+                    <img src="../assets/images/CreateProcess.png" alt="Mediation role of DbA in the creative process" style="width: 100%; margin: 20px 0;">
+                    <p>From the opening image (Phase 1: Vision) to the final illustration (Phase 4: Meta), we use metaphor and narrative to depict the mediation role of the DbA in create process. Imagine a person standing before a wall. The DbA acts as a foundation of knowledge, elevating their perspective and enabling them to gain a bigger vision and inspiration. They then select content that aligns with their intrinsic value in order to generate ideas and begin prototyping. The DbA system then provides relevant information and details, assists with completing multiple specific operations, and subsequently transfers knowledge for usability evaluation.</p>
+                </div>
+            </div>
+            <footer class="footer">© 2025 by Primav</footer>
+        </main>
+    </div>
+
+    <!-- 脚本 -->
+    <script src="../js/1.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/chart.js"></script>
+</body>
+
+</html>
