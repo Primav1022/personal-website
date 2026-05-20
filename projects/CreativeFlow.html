@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <script src="../js/protect.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeFlow: A Benchmark and Dataset for Analogical Creativity in 3D Asset Generation</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1W3ERG64BN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1W3ERG64BN');
+    </script>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="preloader__wrap">
+            <div class="circle-pulse">
+                <div class="circle-pulse__1"></div>
+                <div class="circle-pulse__2"></div>
+            </div>
+            <div class="preloader__progress"><span></span></div>
+        </div>
+    </div>
+
+    <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: 1;">
+        <div id="sketch-holder" style="width: 100%; height: 100%;"></div>
+    </div>
+
+    <div class="container" style="position: relative; z-index: 10;">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../publications.html">Publications</a></li>
+            </ul>
+        </nav>
+
+        <p style="text-align: center; margin: 0.5rem 0 0; font-size: 0.8125rem;"><a href="../projects.html">← All projects</a></p>
+
+        <main class="content-project">
+            <div class="project-details" style="position: relative; z-index: 11;">
+                <div class="project-header">
+                    <h1><strong><em>CreativeFlow</em></strong>: A Benchmark and Dataset for Analogical Creativity in 3D Asset Generation</h1>
+                    <p style="margin: 0 0 0.5rem; color: #5F6F81; font-size: 0.9375rem;">Year: 2026.5.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 0 0 1.25rem;">
+                        <a href="https://creativeflow-bench.github.io/Creativeflow-Dataset/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; padding: 7.2px 14.4px; background: #28a745; color: white; text-decoration: none; border-radius: 6px; font-size: 11.7px; font-weight: 500;">
+                            <i class="fas fa-external-link-alt" style="margin-right: 5.4px;"></i>
+                            View solution space
+                        </a>
+                    </div>
+
+                    <p class="project-abstract" style="margin: 1.5em 0; line-height: 1.7; color: #555;">
+                        Standard text-to-3D pipelines often collapse ambiguous creative intent into homogenized outputs. We introduce <strong><em>CreativeFlow</em></strong>, a benchmark and dataset for quantifying <em>analogical creativity</em> in 3D asset generation. Unlike reconstruction-oriented datasets, CreativeFlow organizes generation as a one-to-many relational transfer problem: 300+ source objects, 3,000+ verified analogical relations, and 6,000+ meshes. By combining structured mappings from bionic and aesthetic knowledge graphs with open-ended LLM associations, it expands intent into a <strong>diverse creative solution space</strong> while keeping each variant traceable to its source–relation–target family. We further propose a multi-dimensional evaluation protocol covering semantic transfer, form diversity, and creative yield, and show that creativity is compressed mainly before 3D reconstruction—structured text transfer and image adaptation carry the creative signal, whereas swapping 3D backends alone recovers little.
+                    </p>
+
+                    <img src="../assets/images/creativeflow_teaser.png" alt="CreativeFlow overview: from homogenized 3D outputs to diverse analogy-driven designs" style="width: 100%; margin: 20px 0;">
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">
+                        Overview of CreativeFlow. (A) Standard 3D models often collapse creative prompts into homogenized outputs.
+                        (B) Our analogy-driven strategy expands intent into diverse, controllable 3D designs.
+                        (C) Human designs exemplify the target structural richness.
+                        (D) We frame current failures as an entropy cascade across text, 2D priors, and 3D reconstruction.
+                    </p>
+
+                    <img src="../assets/images/creativeflow_comparison.png" alt="CreativeFlow vs. baseline Qwen3 + Qwen-Image + Hunyuan3D pipeline" style="width: 100%; margin: 20px 0;">
+                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">
+                        Representative cases comparing a standard Qwen3 + Qwen-Image + Hunyuan3D pipeline with CreativeFlow structured transfer on the same source–relation–target tasks.
+                    </p>
+
+                    <img src="../assets/images/creativeflow_panel_cases.png" alt="CreativeFlow benchmark cases with source, relation, and target variants" style="width: 100%; margin: 20px 0;">
+
+                    <img src="../assets/images/creativeflow_panel_6cases.png" alt="Six CreativeFlow cases with source meshes and generated targets" style="width: 100%; margin: 20px 0;">
+                </div>
+            </div>
+            <footer class="footer">© 2026 by Primav</footer>
+        </main>
+
+    <script src="../js/1.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/chart.js"></script>
+</body>
+
+</html>

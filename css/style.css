@@ -332,7 +332,7 @@ iframe {
   position: sticky;
   top: 150px;
   height: fit-content;
-  background: rgba(255, 255, 255， 0.9);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(5px);
   border-radius: 15px;
   padding: 20px;
@@ -619,14 +619,14 @@ html {
     - timeline
 ----------------------------------------------------------------- */
 .timeline {
-  margin-top: 1.8rem;
+  margin-top: 1.2rem;
   padding-left: .5rem;
 }
 
 .timeline__item {
   border-left: 1px solid #F0F0F6;
-  padding-bottom: .6rem;
-  padding-left: 1.4rem;
+  padding-bottom: .5rem;
+  padding-left: 1.1rem;
   position: relative;
 }
 
@@ -656,60 +656,57 @@ html {
 .timeline__logo {
   display: block;
   width: auto;
-  height: 64px;
+  height: 36px;
   flex-shrink: 0;
-  border-radius: 4px;
   object-fit: contain;
   object-position: center;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  border: none;
+  background: transparent;
   box-sizing: border-box;
-  padding: 0, 0, 0, 8px;
-  margin-right: 15px; /* logo 和标题之间的间距 */
+  padding: 0;
+  margin-right: 8px;
 }
 
-/* polimi-logo-1 特殊样式 - 缩小 10%，移除右侧 margin */
+/* polimi-logo-1 略小以与其它 logo 视觉一致 */
 .timeline__logo[src*="polimi-logo-1.png"] {
-  transform: scale(0.9);
-  transform-origin: center;
-  margin-right: 0 !important;
+  height: 32px;
+  margin-right: 8px;
 }
 
-/* Exchange student 整个容器缩小 10% */
 .timeline__title-wrapper--small {
-  transform: scale(0.9);
-  transform-origin: left center;
+  transform: none;
 }
 
-/* Exchange student 容器内的标题字体放大 10% */
-.timeline__title-wrapper--small .timeline__title {
-  font-size: 1.2em;
-}
-
-/* 标题样式调整 */
+/* 标题样式：单行、较小字号 */
 .timeline__title {
-  margin: 0; /* 确保标题没有额外的 margin */
+  margin: 0;
+  margin-bottom: 0;
+  position: relative;
+  top: -.15rem;
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .timeline__item:last-child {
   border: 0;
 }
 
-.timeline__title {
-  margin-bottom: 0;
-  position: relative;
-  top: -.3rem;
-}
-
 .timeline__period {
   color: #8697A8;
-  font-size: .875rem;
+  font-size: .75rem;
 }
 
 .timeline__description {
-  margin-top: .5rem;
+  margin-top: .35rem;
   color: #5F6F81;
-  line-height: 1.5;
+  font-size: .8125rem;
+  line-height: 1.45;
 }
 
 /* 标题图标样式 */
@@ -722,6 +719,10 @@ html {
 
 /* 响应式调整 */
 @media only screen and (max-width: 580px) {
+  .timeline__title {
+    white-space: normal;
+  }
+
   .timeline__description {
     margin-top: .2rem;
   }
@@ -1473,8 +1474,24 @@ html {
 
 .gallery-grid__item {
   margin-bottom: 1.3rem;
+  position: relative;
   width: calc(33.333% - 1.3rem);
   /* 修正计算方式 */
+}
+
+.project-year-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 998;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: rgba(47, 53, 66, 0.88);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 992px) {
@@ -1782,5 +1799,251 @@ html {
 
 .dark-theme a:hover {
     color: #77b7ff !important;
+}
+
+/* -----------------------------------------------------------------
+    - Case items (What I'm interested in)
+----------------------------------------------------------------- */
+.case-item .title--h5 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+@media only screen and (max-width: 580px) {
+  .case-item .title--h5 {
+    font-size: 1.21875rem;
+  }
+}
+
+/* -----------------------------------------------------------------
+    - Publications
+----------------------------------------------------------------- */
+.pub-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.pub-section-header .title--h3 {
+  margin: 0;
+  color: #304CFD;
+}
+
+.pub-view-all {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #304CFD;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pub-view-all:hover {
+  text-decoration: underline;
+}
+
+.pub-list--compact .pub-item {
+  padding: 0.65rem 0;
+}
+
+.pub-list--compact .pub-title {
+  font-size: 0.875rem;
+}
+
+.pub-section-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #304CFD;
+}
+
+.pub-section-title:first-of-type {
+  margin-top: 1rem;
+}
+
+.pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pub-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #F0F0F6;
+}
+
+.pub-item:last-child {
+  border-bottom: none;
+}
+
+.pub-aside {
+  flex-shrink: 0;
+  width: 6.75rem;
+}
+
+.pub-thumb {
+  display: block;
+  width: 6.75rem;
+  height: 6.75rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f7fa;
+  line-height: 0;
+}
+
+.pub-thumb__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* 按画面比例与内容重心调整裁剪焦点 */
+.pub-thumb__img--dba {
+  object-position: center center;
+}
+
+.pub-thumb__img--viviclay {
+  object-position: left center;
+}
+
+.pub-thumb__img--kushulan {
+  object-position: left center;
+}
+
+.pub-thumb__img--allgoeswell {
+  object-position: center center;
+}
+
+.pub-venue {
+  flex-shrink: 0;
+  min-width: 5.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.pub-venue--chi {
+  background: rgba(220, 53, 69, 0.12);
+  color: #c82333;
+}
+
+.pub-venue--uist {
+  background: rgba(0, 123, 255, 0.12);
+  color: #0056b3;
+}
+
+.pub-venue--ieee {
+  background: rgba(255, 208, 0, 0.25);
+  color: #856404;
+}
+
+.pub-venue--hcii {
+  background: rgba(40, 167, 69, 0.12);
+  color: #1e7e34;
+}
+
+.pub-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 6.75rem;
+}
+
+.pub-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.pub-footer .pub-links {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.pub-footer .pub-venue {
+  flex-shrink: 0;
+  min-width: auto;
+  white-space: nowrap;
+}
+
+.pub-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #333;
+}
+
+.pub-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.pub-title a:hover {
+  color: #304CFD;
+  text-decoration: underline;
+}
+
+.pub-authors {
+  margin: 0 0 0.25rem;
+  font-size: 0.8125rem;
+  color: #5F6F81;
+  line-height: 1.5;
+}
+
+.pub-meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  color: #8697A8;
+  font-style: italic;
+}
+
+.pub-links {
+  margin: 0;
+  font-size: 0.8125rem;
+}
+
+.pub-links a {
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width: 580px) {
+  .pub-item {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .pub-aside {
+    width: 5.25rem;
+  }
+
+  .pub-thumb {
+    width: 5.25rem;
+    height: 5.25rem;
+  }
+
+  .pub-body {
+    min-height: 5.25rem;
+  }
+
+  .pub-footer {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 }
 
