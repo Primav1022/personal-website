@@ -2,10 +2,9 @@
 <html lang="zh">
 
 <head>
-    <script src="../js/protect.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreativeFlow: A Benchmark and Dataset for Analogical Creativity in 3D Asset Generation</title>
+    <title>CreativeFlow: A One-to-Many Analogical Relation Transfer Method for 3D Asset Generation</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -25,6 +24,27 @@
       gtag('js', new Date());
       gtag('config', 'G-1W3ERG64BN');
     </script>
+    <style>
+        .project-details { max-width: 1080px; margin: 20px auto !important; }
+        .cf-venue { display: inline-block; padding: 6px 12px; border-radius: 8px; background: #eee7f8; color: #6f42c1; font-size: 13px; font-weight: 600; margin-bottom: 18px; }
+        .cf-authors { color: #5f6f81; margin-bottom: 6px; }
+        .cf-affiliations { color: #8697a8; font-size: 14px; }
+        .cf-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 12px; }
+        .cf-links a { padding: 9px 14px; border-radius: 8px; background: #6f42c1; color: #fff; text-decoration: none; font-size: 14px; }
+        .cf-section { margin-top: 48px; color: #555; line-height: 1.75; }
+        .cf-section h2 { font-size: 25px; color: #333; margin-bottom: 16px; }
+        .cf-figure { margin: 28px 0; }
+        .cf-figure img { display: block; width: 100%; height: auto; border-radius: 10px; background: white; }
+        .cf-figure figcaption, .cf-note { color: #748294; font-size: 14px; line-height: 1.6; margin-top: 12px; }
+        .cf-steps, .cf-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 24px 0; }
+        .cf-steps article, .cf-metrics article { padding: 22px; background: #f7f4fb; border-radius: 12px; }
+        .cf-steps article > span { color: #6f42c1; font-size: 14px; font-weight: 600; }
+        .cf-steps h3, .cf-metrics h3 { font-size: 17px; margin: 12px 0; color: #333; }
+        .cf-steps p, .cf-metrics p { font-size: 14px; margin: 0; }
+        .cf-metrics strong { font-size: 32px; color: #6f42c1; }
+        .cf-metrics strong span { font-size: 15px; font-weight: 400; }
+        @media (max-width: 700px) { .cf-steps, .cf-metrics { grid-template-columns: 1fr; } .project-details { padding: 20px !important; } .project-details .project-header h1 { font-size: 26px; } .cf-section { margin-top: 32px; } }
+    </style>
 </head>
 
 <body>
@@ -57,39 +77,70 @@
         <main class="content-project">
             <div class="project-details" style="position: relative; z-index: 11;">
                 <div class="project-header">
-                    <h1><strong><em>CreativeFlow</em></strong>: A Benchmark and Dataset for Analogical Creativity in 3D Asset Generation</h1>
-                    <p style="margin: 0 0 0.5rem; color: #5F6F81; font-size: 0.9375rem;">Year: 2026.5.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 0 0 1.25rem;">
-                        <a href="https://creativeflow-bench.github.io/Creativeflow-Dataset/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; padding: 7.2px 14.4px; background: #28a745; color: white; text-decoration: none; border-radius: 6px; font-size: 11.7px; font-weight: 500;">
-                            <i class="fas fa-external-link-alt" style="margin-right: 5.4px;"></i>
-                            View solution space
-                        </a>
+                    <span class="cf-venue">SIGGRAPH Asia 2026</span>
+                    <h1>CreativeFlow: A One-to-Many Analogical Relation Transfer Method for 3D Asset Generation</h1>
+                    <p class="cf-authors"><strong>Xuechen Li</strong>, Shuai Zhang, Nanxuan Zhao, Qing Chen</p>
+                    <p class="cf-affiliations">Tongji University · Adobe Research</p>
+                    <div class="cf-links">
+                        <a href="https://arxiv.org/abs/2610.05167" target="_blank" rel="noopener">Paper ↗</a>
+                        <a href="https://arxiv.org/html/2610.05167v1" target="_blank" rel="noopener">Read HTML ↗</a>
+                        <a href="https://doi.org/10.1145/3829333.3847960" target="_blank" rel="noopener">DOI ↗</a>
+                        <a href="https://creativeflow-bench.github.io/Creativeflow-Dataset/" target="_blank" rel="noopener">Explore solution space ↗</a>
                     </div>
-
-                    <p class="project-abstract" style="margin: 1.5em 0; line-height: 1.7; color: #555;">
-                        Standard text-to-3D pipelines often collapse ambiguous creative intent into homogenized outputs. We introduce <strong><em>CreativeFlow</em></strong>, a benchmark and dataset for quantifying <em>analogical creativity</em> in 3D asset generation. Unlike reconstruction-oriented datasets, CreativeFlow organizes generation as a one-to-many relational transfer problem: 300+ source objects, 3,000+ verified analogical relations, and 6,000+ meshes. By combining structured mappings from bionic and aesthetic knowledge graphs with open-ended LLM associations, it expands intent into a <strong>diverse creative solution space</strong> while keeping each variant traceable to its source–relation–target family. We further propose a multi-dimensional evaluation protocol covering semantic transfer, form diversity, and creative yield, and show that creativity is compressed mainly before 3D reconstruction—structured text transfer and image adaptation carry the creative signal, whereas swapping 3D backends alone recovers little.
-                    </p>
-
-                    <img src="../assets/images/creativeflow_teaser.png" alt="CreativeFlow overview: from homogenized 3D outputs to diverse analogy-driven designs" style="width: 100%; margin: 20px 0;">
-                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">
-                        Overview of CreativeFlow. (A) Standard 3D models often collapse creative prompts into homogenized outputs.
-                        (B) Our analogy-driven strategy expands intent into diverse, controllable 3D designs.
-                        (C) Human designs exemplify the target structural richness.
-                        (D) We frame current failures as an entropy cascade across text, 2D priors, and 3D reconstruction.
-                    </p>
-
-                    <img src="../assets/images/creativeflow_comparison.png" alt="CreativeFlow vs. baseline Qwen3 + Qwen-Image + Hunyuan3D pipeline" style="width: 100%; margin: 20px 0;">
-                    <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">
-                        Representative cases comparing a standard Qwen3 + Qwen-Image + Hunyuan3D pipeline with CreativeFlow structured transfer on the same source–relation–target tasks.
-                    </p>
-
-                    <img src="../assets/images/creativeflow_panel_cases.png" alt="CreativeFlow benchmark cases with source, relation, and target variants" style="width: 100%; margin: 20px 0;">
-
-                    <img src="../assets/images/creativeflow_panel_6cases.png" alt="Six CreativeFlow cases with source meshes and generated targets" style="width: 100%; margin: 20px 0;">
                 </div>
+                <section class="cf-section">
+                    <h2>One source. Many creative directions.</h2>
+                    <p>Open-ended text-to-3D prompts often lead to similar shapes. CreativeFlow uses analogical divergent thinking to turn a single source asset into multiple designs with distinct geometry. Explicit relations guide the transfer of structure, function, material, and aesthetics while keeping the source recognizable.</p>
+                    <figure class="cf-figure">
+                        <img src="../assets/images/creativeflow_arxiv_teaser.png" alt="Comparison of standard 3D generation, CreativeFlow outputs, and human design references">
+                        <figcaption>From homogenized outputs to structurally diverse designs: CreativeFlow transfers meaningful relations through structure mapping.</figcaption>
+                    </figure>
+                </section>
+                <section class="cf-section">
+                    <h2>How CreativeFlow works</h2>
+                    <p>The framework models a proportional analogy: <strong>A : A′ :: B : B′</strong>. A source asset and its attributes are connected to an analogical concept and the attributes that can be transferred back into a new design.</p>
+                    <div class="cf-steps">
+                        <article><span>01</span><h3>Attribute inference</h3><p>An LLM identifies transferable parts and attributes across function, material, structure, visuals, and affordances.</p></article>
+                        <article><span>02</span><h3>Dual-path expansion</h3><p>Knowledge graph retrieval uses Wikidata, Getty AAT, and AskNature. A second path draws on the LLM’s internal associations to expand possible analogical concepts.</p></article>
+                        <article><span>03</span><h3>Mapping &amp; generation</h3><p>Candidate mappings are filtered for semantic novelty, 3D feasibility, and structural transferability. Part-level instructions guide 2D visual priors and 3D reconstruction.</p></article>
+                    </div>
+                    <figure class="cf-figure">
+                        <img loading="lazy" src="../assets/images/creativeflow_arxiv_method.png" alt="CreativeFlow pipeline: attribute inference, dual-path expansion, and analogical mapping with 3D generation">
+                        <figcaption>The three-stage pipeline converts a source prototype into diverse relation-guided 3D assets.</figcaption>
+                    </figure>
+                </section>
+                <section class="cf-section">
+                    <h2>Relation-guided design exploration</h2>
+                    <p>Each source expands into 5–10 aesthetic and structural relations. For example, relating a chair’s support frame to coral’s branching structure transfers a concrete geometric principle into the target design.</p>
+                    <figure class="cf-figure">
+                        <img loading="lazy" src="../assets/images/creativeflow_arxiv_relations.png" alt="Examples of aesthetic, structural and material, and mixed analogical relations">
+                        <figcaption>Aesthetic, structural/material, and mixed relations produce diverse yet recognizable target designs.</figcaption>
+                    </figure>
+                    <figure class="cf-figure">
+                        <img loading="lazy" src="../assets/images/creativeflow_arxiv_results.png" alt="One-to-many generated results for stools, handbags, and frogs with multi-view renderings">
+                        <figcaption>One-to-many results across stools, handbags, and frogs. Each row connects a source asset to generated targets and their multiple views.</figcaption>
+                    </figure>
+                </section>
+                <section class="cf-section">
+                    <h2>Preliminary evaluation</h2>
+                    <p>Two expert studies compared matched prompts against Hunyuan3D-2, TRELLIS-2, and SF3D using five-point scales.</p>
+                    <div class="cf-metrics">
+                        <article><strong>3.66<span> / 5</span></strong><h3>Identity preservation</h3><p>Mean score for retaining a recognizable source identity.</p></article>
+                        <article><strong>3.86<span> / 5</span></strong><h3>Novelty</h3><p>Mean score for creative novelty in the identity-preservation and novelty study.</p></article>
+                        <article><strong>3.31<span> / 5</span></strong><h3>Visual fascination</h3><p>Ten design experts rated CreativeFlow at 3.31, compared with 2.84 for the strongest baseline.</p></article>
+                    </div>
+                    <p class="cf-note">These preliminary findings support the framework’s potential for novel, recognizable, and visually engaging 3D design.</p>
+                </section>
+                <section class="cf-section">
+                    <h2>Future directions</h2>
+                    <p>Future work will develop evaluation metrics for generative creativity and analogical structural rationality, build a large-scale source–relation–target dataset, and explore interactive tools for collaborative human–AI ideation.</p>
+                    <p class="cf-note">Content and figures adapted from <a href="https://arxiv.org/html/2610.05167v1" target="_blank" rel="noopener">CreativeFlow, arXiv:2610.05167v1</a> (CC BY 4.0).</p>
+                </section>
             </div>
             <footer class="footer">© 2026 by Primav</footer>
         </main>
+
+    </div>
 
     <script src="../js/1.js"></script>
     <script src="../js/animation.js"></script>
