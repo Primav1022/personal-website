@@ -384,7 +384,7 @@
     </div>
 
     <!-- 在底部加载你的脚本 -->
-    <!-- 项目排序：按详情页年份（data-project-year）从新到旧 -->
+    <!-- 项目排序：已发表项目优先，其余项目保持原有年份排序 -->
     <script>
         (function() {
             var grid = document.querySelector('.gallery-grid.js-masonry');
@@ -404,7 +404,13 @@
                 else withoutYear.push(item);
             });
             withYear.sort(function(a, b) {
-                return getSortYear(b) - getSortYear(a);
+                var publishedA = a.querySelector('.publication-tag') ? 0 : 1;
+                var publishedB = b.querySelector('.publication-tag') ? 0 : 1;
+                var priorityA = parseInt(a.getAttribute('data-sort-priority'), 10);
+                var priorityB = parseInt(b.getAttribute('data-sort-priority'), 10);
+                return publishedA - publishedB ||
+                    (publishedA === 0 ? priorityA - priorityB : 0) ||
+                    getSortYear(b) - getSortYear(a);
             });
             withYear.concat(withoutYear).forEach(function(item) {
                 grid.appendChild(item);
